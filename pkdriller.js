@@ -465,46 +465,74 @@ setTimeout(() => {
       }
     });
     
-    // ============= AUTO-SAVE DM CONTACTS FUNCTION =============
-    async function autoSaveDmContact(senderJid, senderName, _0x243e88) {
+    // ============= AUTO-SAVE DM CONTACTS FUNCTION (ILIYOREKEBISHWA KABISA) =============
+    async function autoSaveDmContact(senderJid, senderName, zkClient) {
       try {
         const ownerJid = conf.NUMERO_OWNER + "@s.whatsapp.net";
-        const botJid = _0x243e88.user.id.split(':')[0] + '@s.whatsapp.net';
+        const botJid = zkClient.user.id.split(':')[0] + '@s.whatsapp.net';
         
-        // Usijiandike mwenyewe
-        if (senderJid === botJid || senderJid === ownerJid) return;
+        console.log(`[AUTO-SAVE] Checking: ${senderJid} | Name: ${senderName}`);
         
-        // Faili ya kuhifadhi namba
-        const savedFile = "./saved_contacts.json";
+        // Skip if sender is bot or owner
+        if (senderJid === botJid) {
+          console.log(`[AUTO-SAVE] Skipping: Sender is bot`);
+          return;
+        }
+        
+        if (senderJid === ownerJid) {
+          console.log(`[AUTO-SAVE] Skipping: Sender is owner`);
+          return;
+        }
+        
+        // File path for saved contacts
+        const savedFile = path.join(__dirname, "saved_contacts.json");
         let savedContacts = [];
         
+        // Read existing contacts if file exists
         if (fs.existsSync(savedFile)) {
-          savedContacts = JSON.parse(fs.readFileSync(savedFile, "utf8"));
+          try {
+            const fileContent = fs.readFileSync(savedFile, "utf8");
+            savedContacts = JSON.parse(fileContent);
+            console.log(`[AUTO-SAVE] Loaded ${savedContacts.length} existing contacts`);
+          } catch (err) {
+            console.log(`[AUTO-SAVE] Error reading file, creating new array`);
+            savedContacts = [];
+          }
+        } else {
+          console.log(`[AUTO-SAVE] No existing file, will create new one`);
         }
         
-        // Angalia kama namba ipo tayari
-        const alreadySaved = savedContacts.some(c => c.jid === senderJid);
+        // Check if contact already saved
+        const alreadySaved = savedContacts.some(contact => contact.jid === senderJid);
         
         if (!alreadySaved) {
-          // Hifadhi kwenye faili
-          savedContacts.push({
+          // Create new contact object
+          const newContact = {
             jid: senderJid,
-            name: senderName,
+            name: senderName || "Unknown",
             number: senderJid.split('@')[0],
-            firstMessage: new Date().toISOString(),
-            date: new Date().toLocaleString()
-          });
+            firstSeen: new Date().toISOString(),
+            date: new Date().toLocaleString(),
+            timestamp: Date.now()
+          };
           
+          // Add to array
+          savedContacts.push(newContact);
+          
+          // Write to file
           fs.writeFileSync(savedFile, JSON.stringify(savedContacts, null, 2));
+          console.log(`[AUTO-SAVE] ✅ SUCCESS! Saved: ${senderName} (${senderJid.split('@')[0]}) - Total: ${savedContacts.length}`);
           
-          // Tuma notification DM kwako
-          const notifyMsg = `✅ *NEW DM CONTACT SAVED!*\n\n👤 *Name:* ${senderName}\n📱 *Number:* ${senderJid.split('@')[0]}\n🕐 *Time:* ${new Date().toLocaleString()}\n\n_This contact has been saved automatically._`;
+          // Send notification to owner
+          const notifyMsg = `✅ *NEW DM CONTACT SAVED!*\n\n👤 *Name:* ${senderName}\n📱 *Number:* ${senderJid.split('@')[0]}\n🕐 *Time:* ${new Date().toLocaleString()}\n📊 *Total saved:* ${savedContacts.length}\n\n_This contact has been saved automatically to saved_contacts.json_`;
           
-          await _0x243e88.sendMessage(ownerJid, { text: notifyMsg });
-          console.log(`✅ Auto-saved DM contact: ${senderName} (${senderJid.split('@')[0]})`);
+          await zkClient.sendMessage(ownerJid, { text: notifyMsg });
+          console.log(`[AUTO-SAVE] Notification sent to owner`);
+        } else {
+          console.log(`[AUTO-SAVE] ⏭️ Already saved: ${senderName} (${senderJid.split('@')[0]})`);
         }
       } catch (err) {
-        console.log("Auto-save DM error:", err);
+        console.log(`[AUTO-SAVE] ❌ ERROR:`, err.message);
       }
     }
     
@@ -693,14 +721,19 @@ setTimeout(() => {
         }
       }
       
-      // ============= AUTO-SAVE DM CONTACTS (WANAKU DM) =============
+      // ============= AUTO-SAVE DM CONTACTS (WANAKU DM) - ILIYOREKEBISHWA =============
       const autoSaveEnabled = (conf.AUTO_SAVE_DM || "yes").toLowerCase() === "yes";
       const isDM = !_0x37f41c && _0xbaefcb !== "status@broadcast" && !_0xbaefcb?.endsWith("@newsletter");
+      
+      console.log(`[AUTO-SAVE] DM Check: isDM=${isDM}, fromMe=${_0x24b35c.key.fromMe}, autoSaveEnabled=${autoSaveEnabled}`);
       
       if (autoSaveEnabled && isDM && !_0x24b35c.key.fromMe) {
         const senderName = _0x556a7b || "Unknown";
         const senderJid = _0x133a07;
+        console.log(`[AUTO-SAVE] 💾 Attempting to save DM from: ${senderName} (${senderJid})`);
         await autoSaveDmContact(senderJid, senderName, _0x243e88);
+      } else {
+        console.log(`[AUTO-SAVE] ⏭️ Skipping: isDM=${isDM}, fromMe=${_0x24b35c.key.fromMe}, autoSave=${autoSaveEnabled}`);
       }
       // ============= END AUTO-SAVE DM =============
       
