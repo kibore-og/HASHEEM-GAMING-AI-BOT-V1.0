@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://d.uguu.se/TvaiOsyd.jpg" alt="HASHEEM GAMING AI BOT" width="100%" style="border-radius: 12px;">
+<img src="https://files.catbox.moe/ghxrv1.jpg" alt="HASHEEM GAMING AI BOT" width="100%" style="border-radius: 12px;">
 
 <br><br>
 
