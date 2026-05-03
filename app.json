@@ -124,6 +124,11 @@
       "description": "Enable or disable the chatbot. Type yes to activate or no to deactivate (don't write in capital letter)",
       "value": "no",
       "required": false
+    },
+    "AUTO_SAVE_DM": {
+      "description": "Auto-save contacts who DM you. Type yes to activate or no to deactivate",
+      "value": "yes",
+      "required": false
     }
   },
   "buildpacks": [
