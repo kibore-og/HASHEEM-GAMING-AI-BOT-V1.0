@@ -14,7 +14,7 @@
          G A M I N G   A I   B O T   V 1 . 0
 ```
 
-### 🎮 THE MOST POWERFUL WHATSAPP BOT IN THE GAME 🔥
+### 🎮 THE MOST POWERFUL WHATSAPP BOT AND GAMES 🔥
 
 *Powered by AI • Built by **JIDENNA HACKER***
 
