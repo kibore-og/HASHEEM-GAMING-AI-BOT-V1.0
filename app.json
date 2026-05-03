@@ -1,5 +1,5 @@
 {
-  "name":"RAHMANI-XMD",
+  "name":"HASHEEM GAMING AI BOT V1.0",
   "description":"Best whatsapp bot💥 developed by Qartde ",
   "keywords":["bot","node","baileys","whatsapp"],
   "logo":"https://files.catbox.moe/aktbgo.jpg",
@@ -57,7 +57,7 @@
     },
     "BOT_NAME" : {
       "description":"put A name for your bot",
-      "value":"RAHMANI-XMD",
+      "value":"HASHEEM GAMING AI BOT V1.0",
       "required":false
     },
     "BOT_MENU_LINKS" : {
@@ -90,13 +90,13 @@
     {
       "description": "Your name",
       "required": false,
-      "value": "Rahmany"
+      "value": "Hasheem"
     },
     "NUMERO_OWNER":
     {
       "description": "Your number , dont put '+' and put you area code(exemple of kenya '254')",
       "required":true,
-      "value": ""
+      "value": "255761733261"
     },
     "WARN_COUNT":
     {
@@ -127,7 +127,7 @@
     },
     "AUTO_SAVE_DM": {
       "description": "Auto-save contacts who DM you. Type yes to activate or no to deactivate",
-      "value": "yes",
+      "value": "no",
       "required": false
     }
   },
