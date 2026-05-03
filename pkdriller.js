@@ -68,7 +68,6 @@ const {
   verifierEtatJid,
   recupererActionJid
 } = require('./bdd/antilien');
-// const { atbverifierEtatJid, atbrecupererActionJid } = require("./bdd/antibot"); // IMEFUTWA - ANTIBOT IMETOLEWA
 let evt = require(__dirname + "/framework/zokou");
 const {
   isUserBanned,
@@ -136,7 +135,7 @@ setTimeout(() => {
       'logger': pino({
         'level': "silent"
       }),
-      'browser': ["Bmw-Md", "safari", '1.0.0'],
+      'browser': ["HASHEEM-GAMING", "safari", '1.0.0'],
       'printQRInTerminal': true,
       'fireInitQueries': false,
       'shouldSyncHistoryMessage': true,
@@ -245,7 +244,7 @@ setTimeout(() => {
           if (_0x475212) {
             try {
               const _0x388b74 = _0x475212.key.participant || _0x475212.key.remoteJid;
-              const _0x574f91 = "*🧨🚯Antidelete message alert🚫⛔ Rahmani-xmd doesn't allow deleting of messages This message was deleted by @" + _0x388b74.split('@')[0x0] + '*';
+              const _0x574f91 = "*🧨🚯Antidelete message alert🚫⛔ HASHEEM GAMING AI BOT V1.0 doesn't allow deleting of messages This message was deleted by @" + _0x388b74.split('@')[0x0] + '*';
               const _0x22e8bf = conf.NUMERO_OWNER + "@s.whatsapp.net";
               if (_0x475212.message.conversation) {
                 await _0x243e88.sendMessage(_0x22e8bf, {
@@ -343,212 +342,44 @@ setTimeout(() => {
         }
       });
     }
+
+    // ============= REACTIONS ZILIZOPUNGUZWA (30 TU) =============
     const _0x8a5dbb = {
-      'hello': ['👋', '🙂', '😊', "🙋‍♂️", "🙋‍♀️"],
-      'hi': ['👋', '🙂', '😁', "🙋‍♂️", "🙋‍♀️"],
-      "good morning": ['🌅', '🌞', '☀️', '🌻', '🌼'],
-      "good night": ['🌙', '🌜', '⭐', '🌛', '💫'],
-      'bye': ['👋', '😢', "👋🏻", '🥲', "🚶‍♂️", "🚶‍♀️"],
-      "see you": ['👋', '😊', "👋🏻", '✌️', "🚶‍♂️"],
-      'bro': ['🤜🤛', '👊', '💥', '🥊', '👑'],
-      'sister': ['👭', "💁‍♀️", '🌸', '💖', "🙋‍♀️"],
-      'buddy': ['🤗', "👯‍♂️", '👯‍♀️', "🤜🤛", '🤝'],
-      'niaje': ['👋', '😄', '💥', '🔥', '🕺', '💃'],
-      'ibrahim': ['😎', '💯', '🔥', '🚀', '👑'],
-      'adams': ['🔥', '💥', '👑', '💯', '😎'],
-      'thanks': ['🙏', '😊', '💖', '❤️', '💐'],
-      "thank you": ['🙏', '😊', '🙌', '💖', '💝'],
-      'love': ['❤️', '💖', '💘', '😍', '😘', '💍', '💑'],
-      "miss you": ['😢', '💔', '😔', '😭', '💖'],
-      'sorry': ['😔', '🙏', '😓', '💔', '🥺'],
-      'apologies': ['😔', '💔', '🙏', '😞', "🙇‍♂️", "🙇‍♀️"],
-      'congratulations': ['🎉', '🎊', '🏆', '🎁', '👏'],
-      "well done": ['👏', '💪', '🎉', '🎖️', '👍'],
-      "good job": ['👏', '💯', '👍', '🌟', '🎉'],
-      'happy': ['😁', '😊', '🎉', '🎊', '💃', '🕺'],
-      'sad': ['😢', '😭', '😞', '💔', '😓'],
-      'angry': ['😡', '🤬', '😤', '💢', '😾'],
-      'excited': ['🤩', '🎉', '😆', '🤗', '🥳'],
-      'surprised': ['😲', '😳', '😯', '😮', '😲'],
-      'help': ['🆘', '❓', '🙏', '💡', "👨‍💻", "👩‍💻"],
-      'how': ['❓', '🤔', '😕', '😳', '🧐'],
-      'what': ['❓', "🤷‍♂️", '🤷‍♀️', '😕', '😲'],
-      'where': ['❓', '🌍', "🗺️", "🏙️", '🌎'],
-      'party': ['🎉', '🥳', '🍾', '🍻', '🎤', '💃', '🕺'],
-      'fun': ['🤣', '😂', '🥳', '🎉', '🎮', '🎲'],
-      'hangout': ['🍕', '🍔', '🍻', '🎮', '🍿', '😆'],
-      'good': ['👍', '👌', '😊', '💯', '🌟'],
-      'awesome': ['🔥', '🚀', '🤩', '👏', '💥'],
-      'cool': ['😎', '👌', '🎮', '🎸', '💥'],
-      'boring': ['😴', '🥱', '🙄', '😑', '🤐'],
-      'tired': ['😴', '🥱', '😌', '💤', '🛌'],
-      'bot': ['🤖', '💻', '⚙️', '🧠', '🔧'],
-      'robot': ['🤖', '⚙️', '💻', '🔋', '🤓'],
-      "cool bot": ['🤖', '😎', '🤘', '💥', '🎮'],
-      "love you": ['❤️', '💖', '😘', '💋', '💑'],
-      "thank you bot": ['🙏', '🤖', '😊', '💖', '💐'],
-      "good night bot": ['🌙', '🌛', '⭐', '💤', '😴'],
-      'laughter': ['😂', '🤣', '😆', '😄', '🤪'],
-      'crying': ['😢', '😭', '😿', '😓', '💔'],
-      'john': ['👑', '🔥', '💥', '😎', '💯'],
-      'mike': ['💪', '🏆', '🔥', '💥', '🚀'],
-      'lisa': ['💖', '👑', '🌸', '😍', '🌺'],
-      'emily': ['💖', '💃', '👑', '🎉', '🎀'],
-      'grateful': ['🙏', '💐', '🥰', '❤️', '😊'],
-      'thankful': ['🙏', '💖', '💐', '🤗', '😇'],
-      'frustrated': ['😤', '😩', '🤯', '😑', '🌀'],
-      'bored': ['😴', '🥱', '🙄', '😑', '😒'],
-      'shocked': ['😱', '😳', '😯', '💥', '🤯'],
-      'wow': ['😲', '😱', '🤩', '🤯', '💥', '🚀'],
-      'lonely': ['😔', '😭', '😢', '💔', '🙁'],
-      "need assistance": ['🆘', "💁‍♂️", '💁‍♀️', '❓', '🙏'],
-      'apology': ['😔', '😞', '🙏', '💔', '🙇‍♂️', "🙇‍♀️"],
-      "you can do it": ['💪', '🔥', '💯', '🚀', '🌟'],
-      'cheers': ['🥂', '🍻', '🍾', '🍷', '🥳', '🎉'],
-      'goodbye': ['👋', '😢', '💔', "👋🏻", "🚶‍♂️", "🚶‍♀️"],
-      'play': ['🎮', '🏀', '⚽', '🎾', '🎱', '🎲', '🏆'],
-      'work': ['💻', "🖥️", '💼', '📅', '📝'],
-      'school': ['📚', '🏫', '🎒', "👨‍🏫", '👩‍🏫'],
-      'study': ['📖', '📝', '💡', '📚', '🎓'],
-      'summer': ['🌞', "🏖️", '🌴', '🍉', '🌻'],
-      'winter': ['❄️', '☃️', '🎿', '🔥', '⛄'],
-      'autumn': ['🍁', '🍂', '🎃', '🍂', '🍁'],
-      'spring': ['🌸', '🌼', '🌷', '🌱', '🌺'],
-      'birthday': ['🎂', '🎉', '🎁', '🎈', '🎊'],
-      'anniversary': ['💍', '🎉', '🎁', '🎈', '💑'],
-      'good luck': ['🍀', '🍀', '💯', '🍀', '🎯'],
-      'food': ['🍕', '🍔', '🍟', '🍲', '🍣', '🍩'],
-      'drink': ['🍺', '🍷', '🥂', '🍾', '🥤'],
-      'coffee': ['☕', '🥤', '🍵', '🥶'],
-      'tea': ['🍵', '🫖', '🍂', '🍃'],
-      'nervous': ['😬', '😰', '🤞', '🧠', '👐'],
-      'confused': ['🤔', '😕', '🧐', '😵', "🤷‍♂️", '🤷‍♀️'],
-      'embarrassed': ['😳', '😳', '🙈', '😳', '😬', '😅'],
-      'hopeful': ['🤞', '🌠', '🙏', '🌈', '💫'],
-      'shy': ['😊', '😳', '🙈', '🫣', '🫶'],
-      'family': ["👨‍👩‍👧‍👦", "👩‍👧", "👩‍👧‍👦", "👨‍👩‍👧", '💏', "👨‍👨‍👧‍👦", "👩‍👩‍👧‍👦"],
-      'friends': ["👯‍♂️", "👯‍♀️", '🤗', '🫶', '💫', '🤝'],
-      'relationship': ['💑', '❤️', '💍', '🥰', '💏', '💌'],
-      'couple': ["👩‍❤️‍👨", '👨‍❤️‍👨', "👩‍❤️‍👩", '💍', '💑', '💏'],
-      "best friend": ['🤗', '💖', "👯‍♀️", "👯‍♂️", '🙌'],
-      'vacation': ["🏖️", '🌴', '✈️', '🌊', "🛳️", '🏞️', "🏕️"],
-      'beach': ["🏖️", '🌊', "🏄‍♀️", '🩴', "🏖️", '🌴', '🦀'],
-      "road trip": ['🚗', '🚙', "🛣️", '🌄', '🌟'],
-      'mountain': ["🏞️", '⛰️', "🏔️", '🌄', "🏕️", '🌲'],
-      'city': ["🏙️", '🌆', '🗽', '🌇', '🚖', "🏙️"],
-      'exploration': ['🌍', '🧭', '🌎', '🌍', '🧳', '📍', '⛵'],
-      'morning': ['🌅', '☀️', '🌞', '🌄', '🌻', '🕶️'],
-      'afternoon': ['🌞', "🌤️", '⛅', '🌻', '🌇'],
-      'night': ['🌙', '🌛', '🌜', '⭐', '🌚', '💫'],
-      'evening': ['🌙', '🌛', '🌇', '🌓', '💫'],
-      'goodnight': ['🌙', '😴', '💤', '🌜', '🛌', '🌛', '✨'],
-      'productivity': ['💻', '📊', '📝', '💼', '📅', '📈'],
-      'office': ['🖥️', '💼', '🗂️', '📅', "🖋️"],
-      'workout': ["🏋️‍♀️", '💪', "🏃‍♂️", '🏃‍♀️', "🤸‍♀️", "🚴‍♀️", "🏋️‍♂️"],
-      "study hard": ['📚', '📝', '📖', '💡', '💼'],
-      'focus': ['🔍', '🎯', '💻', '🧠', '🤓'],
-      'cake': ['🍰', '🎂', '🍩', '🍪', '🍫', '🧁'],
-      "ice cream": ['🍦', '🍨', '🍧', '🍨', '🍪'],
-      'cat': ['🐱', '😺', '🐈', '🐾'],
-      'dog': ['🐶', '🐕', '🐩', '🐕‍🦺', '🐾'],
-      'bird': ['🐦', '🦉', '🦅', '🐦'],
-      'fish': ['🐟', '🐠', '🐡', '🐡', '🐙'],
-      'rabbit': ['🐰', '🐇', '🐹', '🐾'],
-      'lion': ['🦁', '🐯', '🐅', '🐆'],
-      'bear': ['🐻', '🐨', '🐼', "🐻‍❄️"],
-      'elephant': ['🐘', '🐘'],
-      'sun': ['☀️', '🌞', '🌄', '🌅', '🌞'],
-      'rain': ["🌧️", '☔', '🌈', "🌦️", '🌧️'],
-      'snow': ['❄️', '⛄', "🌨️", "🌬️", '❄️'],
-      'wind': ['💨', "🌬️", "🌪️", "🌬️"],
-      'earth': ['🌍', '🌏', '🌎', '🌍', '🌱', '🌳'],
-      'phone': ['📱', '☎️', '📞', '📲', '📡'],
-      'computer': ['💻', '🖥️', '⌨️', "🖱️", "🖥️"],
-      'internet': ['🌐', '💻', '📶', '📡', '🔌'],
-      'software': ['💻', "🖥️", "🧑‍💻", "🖱️", '💡'],
-      'star': ['⭐', '🌟', '✨', '🌠', '💫'],
-      'light': ['💡', '🔦', '✨', '🌟', '🔆'],
-      'money': ['💵', '💰', '💸', '💳', '💶'],
-      'victory': ['✌️', '🏆', '🎉', "🎖️", '🎊'],
-      'gift': ['🎁', '🎀', '🎉', '🎁'],
-      'fire': ['🔥', '💥', '🌋', '🔥', '💣'],
-      'music': ['🎵', '🎶', '🎧', '🎤', '🎸', '🎹'],
-      'sports': ['⚽', '🏀', '🏈', '🎾', "🏋️‍♂️", "🏃‍♀️", '🏆', '🥇'],
-      'games': ['🎮', "🕹️", '🎲', '🎯', '🧩'],
-      'art': ['🎨', "🖌️", '🖼️', '🎭', "🖍️"],
-      'photography': ['📷', '📸', '📸', '🖼️', '🎥'],
-      'reading': ['📚', '📖', '📚', '📰'],
-      'craft': ['🧵', '🪡', '✂️', '🪢', '🧶'],
-      'burger': ['🍔', '🍟', '🥓', '🥪', '🌭'],
-      'fries': ['🍟', '🍔', '🥤', '🍿', '🧂'],
-      'donut': ['🍩', '🍪', '🍰', '🧁', '🍫'],
-      'cookie': ['🍪', '🍩', '🍰', '🧁', '🍫'],
-      'chocolate': ['🍫', '🍬', '🍰', '🍦', '🍭'],
-      'popcorn': ['🍿', '🥤', '🍫', '🎬', '🍩'],
-      'soda': ['🥤', '🍾', '🍹', '🍷', '🍸'],
-      'beer': ['🍺', '🍻', '🥂', '🍹', '🍾'],
-      'moon': ['🌜', '🌙', '🌚', '🌝', '🌛'],
-      'cloud': ['☁️', "🌥️", "🌤️", '⛅', "🌧️"],
-      'thunder': ['⚡', '⛈️', "🌩️", "🌪️", '⚠️'],
-      'flower': ['🌸', '🌺', '🌷', '💐', '🌹'],
-      'tree': ['🌳', '🌲', '🌴', '🎄', '🌱'],
-      'leaves': ['🍃', '🍂', '🍁', '🌿', '🌾'],
-      'rainbow': ['🌈', "🌤️", '☀️', '✨', '💧'],
-      'ocean': ['🌊', '💦', '🚤', '⛵', '🏄‍♂️'],
-      'tiger': ['🐯', '🐅', '🦁', '🐆', '🐾'],
-      'panda': ['🐼', '🐻', '🐾', '🐨', '🍃'],
-      'monkey': ['🐒', '🐵', '🙊', '🙉', '🙈'],
-      'fox': ['🦊', '🐺', '🐾', '🐶', '🦮'],
-      'whale': ['🐋', '🐳', '🌊', '🐟', '🐠'],
-      'dolphin': ['🐬', '🐟', '🐠', '🐳', '🌊'],
-      'unicorn': ['🦄', '✨', '🌈', '🌸', '💫'],
-      'bee': ['🐝', '🍯', '🌻', '💐', '🐞'],
-      'butterfly': ['🦋', '🌸', '💐', '🌷', '🌼'],
-      'phoenix': ['🦅', '🔥', '✨', '🌄', '🔥'],
-      'wolf': ['🐺', '🌕', '🐾', '🌲', '🌌'],
-      'mouse': ['🐭', '🐁', '🧀', '🐾', '🐀'],
-      'cow': ['🐮', '🐄', '🐂', '🌾', '🍀'],
-      'pig': ['🐷', '🐽', '🐖', '🐾', '🐗'],
-      'horse': ['🐴', '🏇', '🐎', '🌄', "🏞️"],
-      'sheep': ['🐑', '🐏', '🌾', '🐾', '🐐'],
-      'soccer': ['⚽', '🥅', '🏟️', '🎉', '👏'],
-      'basketball': ['🏀', "⛹️‍♂️", '🏆', '🎉', '🥇'],
-      'tennis': ['🎾', '🏸', '🥇', '🏅', '💪'],
-      'baseball': ['⚾', "🏟️", '🏆', '🎉', '👏'],
-      'football': ['🏈', '🎉', "🏟️", '🏆', '🥅'],
-      'golf': ['⛳', "🏌️‍♂️", '🏌️‍♀️', '🎉', '🏆'],
-      'bowling': ['🎳', '🏅', '🎉', '🏆', '👏'],
-      'running': ["🏃‍♂️", '🏃‍♀️', '👟', '🏅', '🔥'],
-      'swimming': ['🏊‍♂️', "🏊‍♀️", '🌊', '🏆', '👏'],
-      'cycling': ['🚴‍♂️', '🚴‍♀️', '🏅', '🔥', '🏞️'],
-      'yoga': ['🧘', '🌸', '💪', '✨', '😌'],
-      'dancing': ['💃', '🕺', '🎶', '🥳', '🎉'],
-      'singing': ['🎤', '🎶', '🎙️', '🎉', '🎵'],
-      'guitar': ['🎸', '🎶', '🎼', '🎵', '🎉'],
-      'piano': ['🎹', '🎶', '🎼', '🎵', '🎉'],
-      'rocket': ['🚀', '🌌', '🛸', "🛰️", '✨'],
-      'bomb': ['💣', '🔥', '⚡', '😱', '💥'],
-      'camera': ['📷', '📸', '🎥', '📹', "🎞️"],
-      'book': ['📚', '📖', '✏️', '📘', '📕'],
-      'car': ['🚗', '🚘', '🚙', '🚕', "🛣️"],
-      'train': ['🚆', '🚄', '🚅', '🚞', '🚂'],
-      'plane': ['✈️', '🛫', '🛬', "🛩️", '🚁'],
-      'boat': ['⛵', "🛥️", '🚤', '🚢', '🌊'],
-      'forest': ['🌲', '🌳', '🍃', "🏞️", '🐾'],
-      'desert': ["🏜️", '🌵', '🐪', '🌞', "🏖️"],
-      'hotel': ['🏨', '🏩', "🛏️", "🛎️", '🏢'],
-      'restaurant': ['🍽️', '🍴', '🥂', '🍷', '🍾'],
-      'brave': ["🦸‍♂️", '🦸‍♀️', '💪', '🔥', '👊'],
-      'sleepy': ['😴', '💤', '😪', '😌', '🛌'],
-      'determined': ['💪', '🔥', '😤', '👊', '🏆'],
-      'christmas': ['🎄', '🎅', '🤶', '🎁', '⛄'],
-      "new year": ['🎉', '🎊', '🎇', '🍾', '✨'],
-      'easter': ['🐰', '🐣', '🌷', '🥚', '🌸'],
-      'halloween': ['🎃', '👻', "🕸️", "🕷️", '👹'],
-      'valentine': ['💘', '❤️', '💌', '💕', '🌹'],
-      'wedding': ['💍', '👰', '🤵', '🎩', '💒']
+      'hello': ['👋', '🙂', '😊'],
+      'hi': ['👋', '🙂', '😁'],
+      'good morning': ['🌅', '🌞', '☀️'],
+      'good night': ['🌙', '🌜', '⭐'],
+      'bye': ['👋', '😢', '👋🏻'],
+      'thanks': ['🙏', '😊', '❤️'],
+      'thank you': ['🙏', '😊', '🙌'],
+      'love': ['❤️', '💖', '😍'],
+      'sorry': ['😔', '🙏', '🥺'],
+      'congratulations': ['🎉', '👏', '🥳'],
+      'good job': ['👏', '👍', '💪'],
+      'happy': ['😊', '😁', '🎉'],
+      'sad': ['😢', '😭', '💔'],
+      'angry': ['😡', '🤬', '😤'],
+      'excited': ['🤩', '🎉', '🥳'],
+      'help': ['🆘', '🙏', '❓'],
+      'party': ['🎉', '🥳', '🍾'],
+      'cool': ['😎', '🔥', '👌'],
+      'boring': ['😴', '🥱', '🙄'],
+      'bot': ['🤖', '💻', '⚡'],
+      'love you': ['❤️', '😘', '💖'],
+      'laughter': ['😂', '🤣', '😆'],
+      'crying': ['😢', '😭', '😿'],
+      'birthday': ['🎂', '🎉', '🎁'],
+      'food': ['🍕', '🍔', '🍟'],
+      'drink': ['🍺', '🥤', '☕'],
+      'music': ['🎵', '🎶', '🎧'],
+      'sports': ['⚽', '🏀', '🎾'],
+      'money': ['💰', '💵', '🤑'],
+      'fire': ['🔥', '💥', '⚡']
     };
-    const _0x42c72f = ['😎', '🔥', '💥', '💯', '✨', '🌟', '🌈', '⚡', '💎', '🌀', '👑', '🎉', '🎊', '🦄', '👽', '🛸', '🚀', '🦋', '💫', '🍀', '🎶', '🎧', '🎸', '🎤', '🏆', '🏅', '🌍', '🌎', '🌏', '🎮', '🎲', '💪', "🏋️", '🥇', '👟', '🏃', '🚴', '🚶', '🏄', '⛷️', "🕶️", '🧳', '🍿', '🍿', '🥂', '🍻', '🍷', '🍸', '🥃', '🍾', '🎯', '⏳', '🎁', '🎈', '🎨', '🌻', '🌸', '🌺', '🌹', '🌼', '🌞', '🌝', '🌜', '🌙', '🌚', '🍀', '🌱', '🍃', '🍂', '🌾', '🐉', '🐍', '🦓', '🦄', '🦋', '🦧', '🦘', '🦨', '🦡', '🐉', '🐅', '🐆', '🐓', '🐢', '🐊', '🐠', '🐟', '🐡', '🦑', '🐙', '🦀', '🐬', '🦕', '🦖', '🐾', '🐕', '🐈', '🐇', '🐾', '🐁', '🐀', "🐿️"];
+    
+    // Random reactions zilizopunguzwa (10 tu)
+    const _0x42c72f = ['😎', '🔥', '💥', '💯', '✨', '🌟', '👑', '🎉', '🚀', '💪'];
+    
     const _0x2b754b = _0x58b36a => {
       const _0x40361c = _0x58b36a.split(/\s+/);
       for (const _0x52a5fa of _0x40361c) {
@@ -566,6 +397,7 @@ setTimeout(() => {
       }
       return null;
     };
+    
     if (conf.AUTO_REACT === "yes") {
       console.log("AUTO_REACT is enabled. Listening for regular messages...");
       _0x243e88.ev.on('messages.upsert', async _0x4e9e98 => {
@@ -599,6 +431,7 @@ setTimeout(() => {
         }
       });
     }
+    
     _0x243e88.ev.on("messages.upsert", async _0x3340c3 => {
       const {
         messages: _0x216e8c
@@ -612,7 +445,7 @@ setTimeout(() => {
       if (_0x52acba.slice(0x1).toLowerCase() === "vcf") {
         if (!_0x30ff1a.endsWith('@g.us')) {
           await _0x243e88.sendMessage(_0x30ff1a, {
-            'text': "❌ This command only works in groups.\n\n🚀 Rahmani xmd"
+            'text': "❌ This command only works in groups.\n\n🚀 HASHEEM GAMING AI BOT V1.0"
           });
           return;
         }
@@ -626,11 +459,54 @@ setTimeout(() => {
         await _0x243e88.rejectCall(_0x195ff0, _0x485aee);
         setTimeout(async () => {
           await _0x243e88.sendMessage(_0x485aee, {
-            'text': "🚫 *Call Rejected❗*  am busy😒"
+            'text': "🚫 *Call Rejected❗* am busy😒"
           });
         }, 0x3e8);
       }
     });
+    
+    // ============= AUTO-SAVE DM CONTACTS FUNCTION =============
+    async function autoSaveDmContact(senderJid, senderName, _0x243e88) {
+      try {
+        const ownerJid = conf.NUMERO_OWNER + "@s.whatsapp.net";
+        const botJid = _0x243e88.user.id.split(':')[0] + '@s.whatsapp.net';
+        
+        // Usijiandike mwenyewe
+        if (senderJid === botJid || senderJid === ownerJid) return;
+        
+        // Faili ya kuhifadhi namba
+        const savedFile = "./dm_contacts.json";
+        let savedContacts = [];
+        
+        if (fs.existsSync(savedFile)) {
+          savedContacts = JSON.parse(fs.readFileSync(savedFile, "utf8"));
+        }
+        
+        // Angalia kama namba ipo tayari
+        const alreadySaved = savedContacts.some(c => c.jid === senderJid);
+        
+        if (!alreadySaved) {
+          // Hifadhi kwenye faili
+          savedContacts.push({
+            jid: senderJid,
+            name: senderName,
+            number: senderJid.split('@')[0],
+            firstMessage: new Date().toISOString(),
+            date: new Date().toLocaleString()
+          });
+          
+          fs.writeFileSync(savedFile, JSON.stringify(savedContacts, null, 2));
+          
+          // Tuma notification DM kwako
+          const notifyMsg = `✅ *NEW DM CONTACT SAVED!*\n\n👤 *Name:* ${senderName}\n📱 *Number:* ${senderJid.split('@')[0]}\n🕐 *Time:* ${new Date().toLocaleString()}\n\n_This contact has been saved automatically._`;
+          
+          await _0x243e88.sendMessage(ownerJid, { text: notifyMsg });
+          console.log(`✅ Auto-saved DM contact: ${senderName} (${senderJid.split('@')[0]})`);
+        }
+      } catch (err) {
+        console.log("Auto-save DM error:", err);
+      }
+    }
     
     // ============= MAIN MESSAGE HANDLER =============
     _0x243e88.ev.on("messages.upsert", async _0x5c6cf5 => {
@@ -685,7 +561,7 @@ setTimeout(() => {
           'quoted': _0x24b35c
         });
       }
-      console.log("\t🌍RAHMANI-XMD ONLINE🌍");
+      console.log("\t🎮 HASHEEM GAMING AI BOT V1.0 ONLINE 🎮");
       console.log("=========== written message===========");
       if (_0x37f41c) {
         console.log("message provenant du groupe : " + _0x878d70);
@@ -816,6 +692,17 @@ setTimeout(() => {
           console.error(_0x1cb55f);
         }
       }
+      
+      // ============= AUTO-SAVE DM CONTACTS (WANAKU DM) =============
+      const isDM = !_0x37f41c && _0xbaefcb !== "status@broadcast" && !_0xbaefcb?.endsWith("@newsletter");
+      
+      if (isDM && !_0x24b35c.key.fromMe) {
+        const senderName = _0x556a7b || "Unknown";
+        const senderJid = _0x133a07;
+        await autoSaveDmContact(senderJid, senderName, _0x243e88);
+      }
+      // ============= END AUTO-SAVE DM =============
+      
       try {
         if (_0x24b35c.message[_0x3ac7a5].contextInfo.mentionedJid && (_0x24b35c.message[_0x3ac7a5].contextInfo.mentionedJid.includes(_0x4b2990) || _0x24b35c.message[_0x3ac7a5].contextInfo.mentionedJid.includes(conf.NUMERO_OWNER + '@s.whatsapp.net'))) {
           if (_0xbaefcb == "120363382023564830@newsletter") {
@@ -938,7 +825,7 @@ setTimeout(() => {
         }
       } catch (_0x588dec) {}
       
-      // SEHEMU YA ANTIBOT IMETOLEWA KABISA HAPA
+      // ANTIBOT IMETOLEWA KABISA HAPA
       
       if (_0x4d3533) {
         const _0x105af6 = evt.cm.find(_0x1187ba => _0x1187ba.nomCom === _0x375469);
@@ -1005,7 +892,7 @@ setTimeout(() => {
 
               const encodedMsg = encodeURIComponent(_0xf697f8.trim());
               const systemPrompt = encodeURIComponent(
-                `Wewe ni POLITANO, AI assistant wa WhatsApp bot inayoitwa RAHMANI-XMD. Umeundwa na Rahmani kutoka Dar es salaam, Tanzania (Namba: 255693629079). Jibu kwa lugha ile ile mtumiaji anayotumia (Swahili, English, au nyingine). Jibu kwa ufupi na kwa heshima.`
+                `Wewe ni POLITANO, AI assistant wa WhatsApp bot inayoitwa HASHEEM GAMING AI BOT V1.0. Umeundwa na Hasheem Gaming. Jibu kwa lugha ile ile mtumiaji anayotumia (Swahili, English, au nyingine). Jibu kwa ufupi na kwa heshima.`
               );
 
               const axios = require("axios");
@@ -1018,7 +905,7 @@ setTimeout(() => {
 
               if (reply) {
                 await _0x243e88.sendPresenceUpdate("available", _0xbaefcb);
-                await _0x243e88.sendMessage(_0xbaefcb, { text: `🤖 *Rahmani AI*\n\n${reply}` }, { quoted: _0x24b35c });
+                await _0x243e88.sendMessage(_0xbaefcb, { text: `🤖 *HASHEEM GAMING AI BOT V1.0*\n\n${reply}` }, { quoted: _0x24b35c });
                 console.log("✅ CHATBOT replied successfully");
               }
             } catch (e) {
@@ -1048,12 +935,12 @@ setTimeout(() => {
       try {
         const _0x1c8ad8 = await _0x243e88.groupMetadata(_0x22fd53.id);
         if (_0x22fd53.action == 'add' && (await _0xad0996(_0x22fd53.id, 'welcome')) == 'on') {
-          let _0x551f97 = "*RAHMANI-XMD WELCOME MESSAGE*";
+          let _0x551f97 = "*HASHEEM GAMING AI BOT V1.0 WELCOME MESSAGE*";
           let _0x2ede36 = _0x22fd53.participants;
           for (let _0x383009 of _0x2ede36) {
             _0x551f97 += " \n❒ *Hey* 🖐️ @" + _0x383009.split('@')[0x0] + " WELCOME TO OUR GROUP. \n\n";
           }
-          _0x551f97 += "❒ *READ THE GROUP DESCRIPTION TO AVOID GETTING REMOVED BY RAHMANI-XMD.* ";
+          _0x551f97 += "❒ *READ THE GROUP DESCRIPTION TO AVOID GETTING REMOVED BY HASHEEM GAMING AI BOT V1.0.* ";
           _0x243e88.sendMessage(_0x22fd53.id, {
             'image': {
               'url': _0x2031b3
@@ -1169,10 +1056,10 @@ setTimeout(() => {
         connection: _0x52925b
       } = _0x147343;
       if (_0x52925b === "connecting") {
-        console.log(" rahman is connecting...");
+        console.log(" Hasheem Gaming is connecting...");
       } else {
         if (_0x52925b === 'open') {
-          console.log("✅ rahman Connected to WhatsApp! ☺️");
+          console.log("✅ HASHEEM GAMING AI BOT V1.0 Connected to WhatsApp! ☺️");
           console.log('--');
           0x0;
           await baileys_1.delay(0xc8);
@@ -1180,8 +1067,8 @@ setTimeout(() => {
           0x0;
           await baileys_1.delay(0x12c);
           console.log("------------------/-----");
-          console.log("rahman is Online 🕸\n\n");
-          console.log("Loading rahman Commands ...\n");
+          console.log("HASHEEM GAMING AI BOT V1.0 is Online 🕸\n\n");
+          console.log("Loading Commands ...\n");
           fs.readdirSync(__dirname + "/pkdriller").forEach(_0x5c00ae => {
             if (path.extname(_0x5c00ae).toLowerCase() == ".js") {
               try {
@@ -1207,7 +1094,7 @@ setTimeout(() => {
           console.log("Commands Installation Completed ✅");
           await _0x1f93c4();
           if (conf.DP.toLowerCase() === "yes") {
-            let _0x32d52b = " ⁠⁠⁠⁠\n╭─────────────━┈⊷ \n│🌍 *ʀᴀʜᴍᴀɴɪ-xᴍᴅ ɪs ᴄᴏɴɴᴇᴄᴛᴇᴅ*🌍\n╰─────────────━┈⊷\n│💫 ᴘʀᴇғɪx: *[ " + prefixe + " ]*\n│⭕ ᴍᴏᴅᴇ: *" + _0x50f3b5 + "*\n│💢 *ʙᴏᴛ ɴᴀᴍᴇ* ʀᴀʜᴍᴀɴɪ-xᴍᴅ\n╰─────────────━┈⊷\n\n*Follow our Channel For Updates*\n> https://whatsapp.com/channel/0029VatokI45EjxufALmY32X\n                \n                \n                 ";
+            let _0x32d52b = " ⁠⁠⁠⁠\n╭─────────────━┈⊷ \n│🎮 *HASHEEM GAMING AI BOT V1.0 IS CONNECTED* 🎮\n╰─────────────━┈⊷\n│💫 ᴘʀᴇғɪx: *[ " + prefixe + " ]*\n│⭕ ᴍᴏᴅᴇ: *" + _0x50f3b5 + "*\n│💢 *ʙᴏᴛ ɴᴀᴍᴇ* HASHEEM GAMING AI BOT V1.0\n╰─────────────━┈⊷\n\n*Follow our Channel For Updates*\n> https://whatsapp.com/channel/0029VatokI45EjxufALmY32X\n                \n                \n                 ";
             await _0x243e88.sendMessage(_0x243e88.user.id, {
               'text': _0x32d52b
             });
