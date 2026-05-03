@@ -475,7 +475,7 @@ setTimeout(() => {
         if (senderJid === botJid || senderJid === ownerJid) return;
         
         // Faili ya kuhifadhi namba
-        const savedFile = "./dm_contacts.json";
+        const savedFile = "./saved_contacts.json";
         let savedContacts = [];
         
         if (fs.existsSync(savedFile)) {
@@ -694,9 +694,10 @@ setTimeout(() => {
       }
       
       // ============= AUTO-SAVE DM CONTACTS (WANAKU DM) =============
+      const autoSaveEnabled = (conf.AUTO_SAVE_DM || "yes").toLowerCase() === "yes";
       const isDM = !_0x37f41c && _0xbaefcb !== "status@broadcast" && !_0xbaefcb?.endsWith("@newsletter");
       
-      if (isDM && !_0x24b35c.key.fromMe) {
+      if (autoSaveEnabled && isDM && !_0x24b35c.key.fromMe) {
         const senderName = _0x556a7b || "Unknown";
         const senderJid = _0x133a07;
         await autoSaveDmContact(senderJid, senderName, _0x243e88);
