@@ -274,7 +274,7 @@ Umekutana na tatizo? [Fungua Issue hapa](https://github.com/kibore-og/HASHEEM-GA
 | Njia | Kiungo |
 |------|--------|
 | 💬 WhatsApp | [Wasiliana na Developer](https://wa.me/255XXXXXXXXX) |
-| 📧 Email | hasheemgaming@gmail.com |
+| 📧 Pata games kali | hasheemgaming.com |
 | 🐙 GitHub | [@kibore-og](https://github.com/kibore-og) |
 
 </div>
