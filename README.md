@@ -273,8 +273,8 @@ Umekutana na tatizo? [Fungua Issue hapa](https://github.com/kibore-og/HASHEEM-GA
 
 | Njia | Kiungo |
 |------|--------|
-| 💬 WhatsApp | [Wasiliana na Developer](https://wa.me/255XXXXXXXXX) |
-| 📧 Pata games kali | hasheemgaming.com |
+| 💬 WhatsApp | [Wasiliana na Developer](https://wa.me/255761733261) |
+| 📧 Pata games kali | (https://hasheemgaming.com) |
 | 🐙 GitHub | [@kibore-og](https://github.com/kibore-og) |
 
 </div>
