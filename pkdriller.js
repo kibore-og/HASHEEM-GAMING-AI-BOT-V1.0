@@ -343,41 +343,30 @@ setTimeout(() => {
       });
     }
 
-    // ============= REACTIONS ZILIZOPUNGUZWA (30 TU) =============
+    // ============= REACTONS ZILIZOPUNGUZWA =============
     const _0x8a5dbb = {
       'hello': ['👋', '🙂', '😊'],
       'hi': ['👋', '🙂', '😁'],
-      'good morning': ['🌅', '🌞', '☀️'],
-      'good night': ['🌙', '🌜', '⭐'],
-      'bye': ['👋', '😢', '👋🏻'],
       'thanks': ['🙏', '😊', '❤️'],
       'thank you': ['🙏', '😊', '🙌'],
       'love': ['❤️', '💖', '😍'],
       'sorry': ['😔', '🙏', '🥺'],
-      'congratulations': ['🎉', '👏', '🥳'],
-      'good job': ['👏', '👍', '💪'],
       'happy': ['😊', '😁', '🎉'],
       'sad': ['😢', '😭', '💔'],
       'angry': ['😡', '🤬', '😤'],
-      'excited': ['🤩', '🎉', '🥳'],
       'help': ['🆘', '🙏', '❓'],
       'party': ['🎉', '🥳', '🍾'],
       'cool': ['😎', '🔥', '👌'],
-      'boring': ['😴', '🥱', '🙄'],
       'bot': ['🤖', '💻', '⚡'],
       'love you': ['❤️', '😘', '💖'],
-      'laughter': ['😂', '🤣', '😆'],
-      'crying': ['😢', '😭', '😿'],
       'birthday': ['🎂', '🎉', '🎁'],
       'food': ['🍕', '🍔', '🍟'],
-      'drink': ['🍺', '🥤', '☕'],
       'music': ['🎵', '🎶', '🎧'],
       'sports': ['⚽', '🏀', '🎾'],
       'money': ['💰', '💵', '🤑'],
       'fire': ['🔥', '💥', '⚡']
     };
     
-    // Random reactions zilizopunguzwa (10 tu)
     const _0x42c72f = ['😎', '🔥', '💥', '💯', '✨', '🌟', '👑', '🎉', '🚀', '💪'];
     
     const _0x2b754b = _0x58b36a => {
@@ -399,7 +388,7 @@ setTimeout(() => {
     };
     
     if (conf.AUTO_REACT === "yes") {
-      console.log("AUTO_REACT is enabled. Listening for regular messages...");
+      console.log("AUTO_REACT is enabled...");
       _0x243e88.ev.on('messages.upsert', async _0x4e9e98 => {
         const {
           messages: _0x5bab68
@@ -407,10 +396,7 @@ setTimeout(() => {
         for (const _0x2ecc86 of _0x5bab68) {
           if (_0x2ecc86.key && _0x2ecc86.key.remoteJid) {
             const _0x536b89 = Date.now();
-            if (_0x536b89 - _0x242b59 < 0x1388) {
-              console.log("Throttling reactions to prevent overflow.");
-              continue;
-            }
+            if (_0x536b89 - _0x242b59 < 0x1388) continue;
             const _0x191879 = _0x2ecc86?.['message']?.["conversation"] || '';
             const _0x5761d0 = _0x2b754b(_0x191879) || _0x42c72f[Math.floor(Math.random() * _0x42c72f.length)];
             if (_0x5761d0) {
@@ -421,10 +407,7 @@ setTimeout(() => {
                 }
               }).then(() => {
                 _0x242b59 = Date.now();
-                console.log("Successfully reacted with '" + _0x5761d0 + "' to message by " + _0x2ecc86.key.remoteJid);
-              })['catch'](_0x45d35c => {
-                console.error("Failed to send reaction:", _0x45d35c);
-              });
+              })['catch'](_0x45d35c => {});
             }
             await _0xe3bf32(0x7d0);
           }
@@ -437,54 +420,41 @@ setTimeout(() => {
         messages: _0x216e8c
       } = _0x3340c3;
       const _0x351e6e = _0x216e8c[0x0];
-      if (!_0x351e6e.message) {
-        return;
-      }
+      if (!_0x351e6e.message) return;
       const _0x52acba = _0x351e6e.message.conversation || _0x351e6e.message.extendedTextMessage?.["text"] || '';
       const _0x30ff1a = _0x351e6e.key.remoteJid;
       if (_0x52acba.slice(0x1).toLowerCase() === "vcf") {
         if (!_0x30ff1a.endsWith('@g.us')) {
-          await _0x243e88.sendMessage(_0x30ff1a, {
-            'text': "❌ This command only works in groups.\n\n🚀 HASHEEM GAMING AI BOT V1.0"
-          });
+          await _0x243e88.sendMessage(_0x30ff1a, { 'text': "❌ This command only works in groups.\n\n🚀 HASHEEM GAMING AI BOT V1.0" });
           return;
         }
         await createAndSendGroupVCard(_0x30ff1a, "Charles family", _0x243e88);
       }
     });
+    
     _0x243e88.ev.on("call", async _0x470dda => {
       if (conf.ANTICALL === "yes") {
         const _0x195ff0 = _0x470dda[0x0].id;
         const _0x485aee = _0x470dda[0x0].from;
         await _0x243e88.rejectCall(_0x195ff0, _0x485aee);
         setTimeout(async () => {
-          await _0x243e88.sendMessage(_0x485aee, {
-            'text': "🚫 *Call Rejected❗* am busy😒"
-          });
+          await _0x243e88.sendMessage(_0x485aee, { 'text': "🚫 *Call Rejected❗* am busy😒" });
         }, 0x3e8);
       }
     });
     
-    // ============= AUTO-SAVE DM CONTACTS FUNCTION (ILIYOREKEBISHWA KABISA) =============
+    // ============= AUTO-SAVE DM CONTACTS FUNCTION (ILIOSAHIHISHWA KABISA) =============
     async function autoSaveDmContact(senderJid, senderName, zkClient) {
       try {
         const ownerJid = conf.NUMERO_OWNER + "@s.whatsapp.net";
         const botJid = zkClient.user.id.split(':')[0] + '@s.whatsapp.net';
         
-        console.log(`[AUTO-SAVE] Checking: ${senderJid} | Name: ${senderName}`);
-        
         // Skip if sender is bot or owner
-        if (senderJid === botJid) {
-          console.log(`[AUTO-SAVE] Skipping: Sender is bot`);
-          return;
+        if (senderJid === botJid || senderJid === ownerJid) {
+          console.log(`[AUTO-SAVE] Skipping: Sender is bot or owner`);
+          return false;
         }
         
-        if (senderJid === ownerJid) {
-          console.log(`[AUTO-SAVE] Skipping: Sender is owner`);
-          return;
-        }
-        
-        // File path for saved contacts
         const savedFile = path.join(__dirname, "saved_contacts.json");
         let savedContacts = [];
         
@@ -492,14 +462,14 @@ setTimeout(() => {
         if (fs.existsSync(savedFile)) {
           try {
             const fileContent = fs.readFileSync(savedFile, "utf8");
-            savedContacts = JSON.parse(fileContent);
-            console.log(`[AUTO-SAVE] Loaded ${savedContacts.length} existing contacts`);
+            if (fileContent && fileContent.trim()) {
+              savedContacts = JSON.parse(fileContent);
+              console.log(`[AUTO-SAVE] Loaded ${savedContacts.length} contacts`);
+            }
           } catch (err) {
-            console.log(`[AUTO-SAVE] Error reading file, creating new array`);
+            console.log(`[AUTO-SAVE] Error reading file:`, err.message);
             savedContacts = [];
           }
-        } else {
-          console.log(`[AUTO-SAVE] No existing file, will create new one`);
         }
         
         // Check if contact already saved
@@ -516,23 +486,24 @@ setTimeout(() => {
             timestamp: Date.now()
           };
           
-          // Add to array
           savedContacts.push(newContact);
           
           // Write to file
-          fs.writeFileSync(savedFile, JSON.stringify(savedContacts, null, 2));
-          console.log(`[AUTO-SAVE] ✅ SUCCESS! Saved: ${senderName} (${senderJid.split('@')[0]}) - Total: ${savedContacts.length}`);
+          fs.writeFileSync(savedFile, JSON.stringify(savedContacts, null, 2), 'utf8');
+          console.log(`[AUTO-SAVE] ✅ SAVED: ${senderName} (${senderJid.split('@')[0]}) - Total: ${savedContacts.length}`);
           
-          // Send notification to owner
-          const notifyMsg = `✅ *NEW DM CONTACT SAVED!*\n\n👤 *Name:* ${senderName}\n📱 *Number:* ${senderJid.split('@')[0]}\n🕐 *Time:* ${new Date().toLocaleString()}\n📊 *Total saved:* ${savedContacts.length}\n\n_This contact has been saved automatically to saved_contacts.json_`;
-          
+          // Send notification ONLY ONCE
+          const notifyMsg = `✅ *NEW DM CONTACT SAVED!*\n\n👤 *Name:* ${senderName}\n📱 *Number:* ${senderJid.split('@')[0]}\n🕐 *Time:* ${new Date().toLocaleString()}\n📊 *Total saved:* ${savedContacts.length}`;
           await zkClient.sendMessage(ownerJid, { text: notifyMsg });
           console.log(`[AUTO-SAVE] Notification sent to owner`);
+          return true;
         } else {
-          console.log(`[AUTO-SAVE] ⏭️ Already saved: ${senderName} (${senderJid.split('@')[0]})`);
+          console.log(`[AUTO-SAVE] ⏭️ Already saved: ${senderName}`);
+          return false;
         }
       } catch (err) {
         console.log(`[AUTO-SAVE] ❌ ERROR:`, err.message);
+        return false;
       }
     }
     
@@ -542,24 +513,20 @@ setTimeout(() => {
         messages: _0x3387e4
       } = _0x5c6cf5;
       const _0x24b35c = _0x3387e4[0x0];
-      if (!_0x24b35c.message) {
-        return;
-      }
+      if (!_0x24b35c.message) return;
+      
       const _0x26fc14 = _0x2d93bd => {
-        if (!_0x2d93bd) {
-          return _0x2d93bd;
-        }
+        if (!_0x2d93bd) return _0x2d93bd;
         if (/:\d+@/gi.test(_0x2d93bd)) {
-          0x0;
           let _0x2be113 = baileys_1.jidDecode(_0x2d93bd) || {};
           return _0x2be113.user && _0x2be113.server && _0x2be113.user + '@' + _0x2be113.server || _0x2d93bd;
         } else {
           return _0x2d93bd;
         }
       };
-      0x0;
+      
       var _0x3ac7a5 = baileys_1.getContentType(_0x24b35c.message);
-      var _0xf697f8 = _0x3ac7a5 == 'conversation' ? _0x24b35c.message.conversation : _0x3ac7a5 == "imageMessage" ? _0x24b35c.message.imageMessage?.["caption"] : _0x3ac7a5 == 'videoMessage' ? _0x24b35c.message.videoMessage?.["caption"] : _0x3ac7a5 == 'extendedTextMessage' ? _0x24b35c.message?.["extendedTextMessage"]?.["text"] : _0x3ac7a5 == "buttonsResponseMessage" ? _0x24b35c?.["message"]?.['buttonsResponseMessage']?.["selectedButtonId"] : _0x3ac7a5 == "listResponseMessage" ? _0x24b35c.message?.["listResponseMessage"]?.["singleSelectReply"]?.["selectedRowId"] : _0x3ac7a5 == "messageContextInfo" ? _0x24b35c?.['message']?.["buttonsResponseMessage"]?.["selectedButtonId"] || _0x24b35c.message?.['listResponseMessage']?.["singleSelectReply"]?.["selectedRowId"] || _0x24b35c.text : '';
+      var _0xf697f8 = _0x3ac7a5 == 'conversation' ? _0x24b35c.message.conversation : _0x3ac7a5 == "imageMessage" ? _0x24b35c.message.imageMessage?.["caption"] : _0x3ac7a5 == 'videoMessage' ? _0x24b35c.message.videoMessage?.["caption"] : _0x3ac7a5 == 'extendedTextMessage' ? _0x24b35c.message?.["extendedTextMessage"]?.["text"] : _0x3ac7a5 == "buttonsResponseMessage" ? _0x24b35c?.["message"]?.['buttonsResponseMessage']?.["selectedButtonId"] : _0x3ac7a5 == "listResponseMessage" ? _0x24b35c.message?.["listResponseMessage"]?.["singleSelectReply"]?.["selectedRowId"] : '';
       var _0xbaefcb = _0x24b35c.key.remoteJid;
       var _0x4b2990 = _0x26fc14(_0x243e88.user.id);
       var _0x5f203a = _0x4b2990.split('@')[0x0];
@@ -568,58 +535,44 @@ setTimeout(() => {
       var _0x878d70 = _0x37f41c ? _0x2a34d7.subject : '';
       var _0x11e945 = _0x24b35c.message.extendedTextMessage?.["contextInfo"]?.["quotedMessage"];
       var _0x3b005b = _0x26fc14(_0x24b35c.message?.["extendedTextMessage"]?.["contextInfo"]?.["participant"]);
-      var _0x133a07 = _0x37f41c ? _0x24b35c.key.participant ? _0x24b35c.key.participant : _0x24b35c.participant : _0xbaefcb;
-      if (_0x24b35c.key.fromMe) {
-        _0x133a07 = _0x4b2990;
-      }
+      var _0x133a07 = _0x37f41c ? (_0x24b35c.key.participant ? _0x24b35c.key.participant : _0x24b35c.participant) : _0xbaefcb;
+      if (_0x24b35c.key.fromMe) _0x133a07 = _0x4b2990;
       var _0x53233c = _0x37f41c ? _0x24b35c.key.participant : '';
-      const {
-        getAllSudoNumbers: _0x560f6b
-      } = require("./bdd/sudo");
+      
+      const { getAllSudoNumbers: _0x560f6b } = require("./bdd/sudo");
       const _0x556a7b = _0x24b35c.pushName;
       const _0x2d1d33 = await _0x560f6b();
-      const _0x1acf53 = [_0x5f203a, "254710772666", '254710772666', "254710772666", '254710772666', conf.NUMERO_OWNER].map(_0x58d6f1 => _0x58d6f1.replace(/[^0-9]/g) + "@s.whatsapp.net");
+      const _0x1acf53 = [_0x5f203a, conf.NUMERO_OWNER].map(_0x58d6f1 => _0x58d6f1.replace(/[^0-9]/g) + "@s.whatsapp.net");
       const _0x4e50eb = _0x1acf53.concat(_0x2d1d33);
       const _0x34fccb = _0x4e50eb.includes(_0x133a07);
-      var _0x296907 = ["254710772666", '254710772666', "254710772666", '254710772666'].map(_0x38d537 => _0x38d537.replace(/[^0-9]/g) + '@s.whatsapp.net').includes(_0x133a07);
+      var _0x296907 = [conf.NUMERO_OWNER].map(_0x38d537 => _0x38d537.replace(/[^0-9]/g) + '@s.whatsapp.net').includes(_0x133a07);
+      
       function _0x574167(_0x42c1ba) {
-        _0x243e88.sendMessage(_0xbaefcb, {
-          'text': _0x42c1ba
-        }, {
-          'quoted': _0x24b35c
-        });
+        _0x243e88.sendMessage(_0xbaefcb, { 'text': _0x42c1ba }, { 'quoted': _0x24b35c });
       }
+      
       console.log("\t🎮 HASHEEM GAMING AI BOT V1.0 ONLINE 🎮");
       console.log("=========== written message===========");
-      if (_0x37f41c) {
-        console.log("message provenant du groupe : " + _0x878d70);
-      }
-      console.log("message envoyé par : [" + _0x556a7b + " : " + _0x133a07.split('@s.whatsapp.net')[0x0] + " ]");
-      console.log("type de message : " + _0x3ac7a5);
-      console.log("------ contenu du message ------");
-      console.log(_0xf697f8);
+      if (_0x37f41c) console.log("Group: " + _0x878d70);
+      console.log("From: [" + _0x556a7b + " : " + _0x133a07.split('@')[0x0] + " ]");
+      console.log("Type: " + _0x3ac7a5);
+      console.log("Content: " + _0xf697f8);
+      
       function _0x521d5b(_0x49b667) {
         let _0x55b787 = [];
-        for (_0x5c6cf5 of _0x49b667) {
-          if (_0x5c6cf5.admin == null) {
-            continue;
-          }
+        for (let _0x5c6cf5 of _0x49b667) {
+          if (_0x5c6cf5.admin == null) continue;
           _0x55b787.push(_0x5c6cf5.id);
         }
         return _0x55b787;
       }
+      
       var _0x22a59d = conf.ETAT;
-      if (_0x22a59d == 0x1) {
-        await _0x243e88.sendPresenceUpdate("available", _0xbaefcb);
-      } else {
-        if (_0x22a59d == 0x2) {
-          await _0x243e88.sendPresenceUpdate("composing", _0xbaefcb);
-        } else if (_0x22a59d == 0x3) {
-          await _0x243e88.sendPresenceUpdate("recording", _0xbaefcb);
-        } else {
-          await _0x243e88.sendPresenceUpdate("unavailable", _0xbaefcb);
-        }
-      }
+      if (_0x22a59d == 0x1) await _0x243e88.sendPresenceUpdate("available", _0xbaefcb);
+      else if (_0x22a59d == 0x2) await _0x243e88.sendPresenceUpdate("composing", _0xbaefcb);
+      else if (_0x22a59d == 0x3) await _0x243e88.sendPresenceUpdate("recording", _0xbaefcb);
+      else await _0x243e88.sendPresenceUpdate("unavailable", _0xbaefcb);
+      
       const _0x15fef6 = _0x37f41c ? await _0x2a34d7.participants : '';
       let _0x11ea71 = _0x37f41c ? _0x521d5b(_0x15fef6) : '';
       const _0x62654f = _0x37f41c ? _0x11ea71.includes(_0x133a07) : false;
@@ -630,9 +583,9 @@ setTimeout(() => {
       const _0x41f5ea = conf.URL.split(',');
       function _0x215274() {
         const _0x2e3bf7 = Math.floor(Math.random() * _0x41f5ea.length);
-        const _0x1e8c83 = _0x41f5ea[_0x2e3bf7];
-        return _0x1e8c83;
+        return _0x41f5ea[_0x2e3bf7];
       }
+      
       var _0x20955d = {
         'superUser': _0x34fccb,
         'dev': _0x296907,
@@ -656,93 +609,61 @@ setTimeout(() => {
         'ms': _0x24b35c,
         'mybotpic': _0x215274
       };
+      
       if (conf.AUTO_READ === 'yes') {
         _0x243e88.ev.on("messages.upsert", async _0x490d27 => {
-          const {
-            messages: _0x543d2e
-          } = _0x490d27;
+          const { messages: _0x543d2e } = _0x490d27;
           for (const _0x179941 of _0x543d2e) {
-            if (!_0x179941.key.fromMe) {
-              await _0x243e88.readMessages([_0x179941.key]);
-            }
+            if (!_0x179941.key.fromMe) await _0x243e88.readMessages([_0x179941.key]);
           }
         });
       }
+      
       if (_0x24b35c.key && _0x24b35c.key.remoteJid === "status@broadcast" && conf.AUTO_READ_STATUS === 'yes') {
         await _0x243e88.readMessages([_0x24b35c.key]);
       }
+      
       if (_0x24b35c.key && _0x24b35c.key.remoteJid === "status@broadcast" && conf.AUTO_DOWNLOAD_STATUS === 'yes') {
         if (_0x24b35c.message.extendedTextMessage) {
           var _0x2cea19 = _0x24b35c.message.extendedTextMessage.text;
-          await _0x243e88.sendMessage(_0x4b2990, {
-            'text': _0x2cea19
-          }, {
-            'quoted': _0x24b35c
-          });
-        } else {
-          if (_0x24b35c.message.imageMessage) {
-            var _0x2aebb5 = _0x24b35c.message.imageMessage.caption;
-            var _0x1222c1 = await _0x243e88.downloadAndSaveMediaMessage(_0x24b35c.message.imageMessage);
-            await _0x243e88.sendMessage(_0x4b2990, {
-              'image': {
-                'url': _0x1222c1
-              },
-              'caption': _0x2aebb5
-            }, {
-              'quoted': _0x24b35c
-            });
-          } else {
-            if (_0x24b35c.message.videoMessage) {
-              var _0x2aebb5 = _0x24b35c.message.videoMessage.caption;
-              var _0x4d83aa = await _0x243e88.downloadAndSaveMediaMessage(_0x24b35c.message.videoMessage);
-              await _0x243e88.sendMessage(_0x4b2990, {
-                'video': {
-                  'url': _0x4d83aa
-                },
-                'caption': _0x2aebb5
-              }, {
-                'quoted': _0x24b35c
-              });
-            }
-          }
-        }
-      }
-      if (!_0x296907 && _0xbaefcb == "120363158701337904@g.us") {
-        return;
-      }
-      if (_0xf697f8 && _0x133a07.endsWith('s.whatsapp.net')) {
-        const {
-          ajouterOuMettreAJourUserData: _0x48d8c5
-        } = require("./bdd/level");
-        try {
-          await _0x48d8c5(_0x133a07);
-        } catch (_0x1cb55f) {
-          console.error(_0x1cb55f);
+          await _0x243e88.sendMessage(_0x4b2990, { 'text': _0x2cea19 }, { 'quoted': _0x24b35c });
+        } else if (_0x24b35c.message.imageMessage) {
+          var _0x2aebb5 = _0x24b35c.message.imageMessage.caption;
+          var _0x1222c1 = await _0x243e88.downloadAndSaveMediaMessage(_0x24b35c.message.imageMessage);
+          await _0x243e88.sendMessage(_0x4b2990, { 'image': { 'url': _0x1222c1 }, 'caption': _0x2aebb5 }, { 'quoted': _0x24b35c });
+        } else if (_0x24b35c.message.videoMessage) {
+          var _0x2aebb5 = _0x24b35c.message.videoMessage.caption;
+          var _0x4d83aa = await _0x243e88.downloadAndSaveMediaMessage(_0x24b35c.message.videoMessage);
+          await _0x243e88.sendMessage(_0x4b2990, { 'video': { 'url': _0x4d83aa }, 'caption': _0x2aebb5 }, { 'quoted': _0x24b35c });
         }
       }
       
-      // ============= AUTO-SAVE DM CONTACTS (WANAKU DM) - ILIYOREKEBISHWA =============
+      if (!_0x296907 && _0xbaefcb == "120363158701337904@g.us") return;
+      
+      if (_0xf697f8 && _0x133a07.endsWith('s.whatsapp.net')) {
+        const { ajouterOuMettreAJourUserData: _0x48d8c5 } = require("./bdd/level");
+        try { await _0x48d8c5(_0x133a07); } catch (_0x1cb55f) { console.error(_0x1cb55f); }
+      }
+      
+      // ============= AUTO-SAVE DM CONTACTS (ILIOSAHIHISHWA) =============
       const autoSaveEnabled = (conf.AUTO_SAVE_DM || "yes").toLowerCase() === "yes";
       const isDM = !_0x37f41c && _0xbaefcb !== "status@broadcast" && !_0xbaefcb?.endsWith("@newsletter");
+      const isFromMe = _0x24b35c.key.fromMe;
       
-      console.log(`[AUTO-SAVE] DM Check: isDM=${isDM}, fromMe=${_0x24b35c.key.fromMe}, autoSaveEnabled=${autoSaveEnabled}`);
+      console.log(`[AUTO-SAVE-DEBUG] isDM=${isDM}, fromMe=${isFromMe}, autoSave=${autoSaveEnabled}`);
       
-      if (autoSaveEnabled && isDM && !_0x24b35c.key.fromMe) {
+      if (autoSaveEnabled && isDM && !isFromMe) {
         const senderName = _0x556a7b || "Unknown";
         const senderJid = _0x133a07;
-        console.log(`[AUTO-SAVE] 💾 Attempting to save DM from: ${senderName} (${senderJid})`);
+        console.log(`[AUTO-SAVE-DEBUG] Processing DM from: ${senderName} (${senderJid})`);
         await autoSaveDmContact(senderJid, senderName, _0x243e88);
-      } else {
-        console.log(`[AUTO-SAVE] ⏭️ Skipping: isDM=${isDM}, fromMe=${_0x24b35c.key.fromMe}, autoSave=${autoSaveEnabled}`);
       }
       // ============= END AUTO-SAVE DM =============
       
+      // Mention handler
       try {
         if (_0x24b35c.message[_0x3ac7a5].contextInfo.mentionedJid && (_0x24b35c.message[_0x3ac7a5].contextInfo.mentionedJid.includes(_0x4b2990) || _0x24b35c.message[_0x3ac7a5].contextInfo.mentionedJid.includes(conf.NUMERO_OWNER + '@s.whatsapp.net'))) {
-          if (_0xbaefcb == "120363382023564830@newsletter") {
-            return;
-          }
-          ;
+          if (_0xbaefcb == "120363382023564830@newsletter") return;
           if (_0x34fccb) {
             console.log("hummm");
             return;
@@ -756,47 +677,17 @@ setTimeout(() => {
           }
           let _0x21e48d;
           if (_0xa3a8cf.type.toLocaleLowerCase() === "image") {
-            _0x21e48d = {
-              'image': {
-                'url': _0xa3a8cf.url
-              },
-              'caption': _0xa3a8cf.message
-            };
-          } else {
-            if (_0xa3a8cf.type.toLocaleLowerCase() === 'video') {
-              _0x21e48d = {
-                'video': {
-                  'url': _0xa3a8cf.url
-                },
-                'caption': _0xa3a8cf.message
-              };
-            } else {
-              if (_0xa3a8cf.type.toLocaleLowerCase() === "sticker") {
-                let _0x1bc6c0 = new Sticker(_0xa3a8cf.url, {
-                  'pack': conf.NOM_OWNER,
-                  'type': StickerTypes.FULL,
-                  'categories': ['🤩', '🎉'],
-                  'id': "12345",
-                  'quality': 0x46,
-                  'background': 'transparent'
-                });
-                const _0x1bd60b = await _0x1bc6c0.toBuffer();
-                _0x21e48d = {
-                  'sticker': _0x1bd60b
-                };
-              } else if (_0xa3a8cf.type.toLocaleLowerCase() === "audio") {
-                _0x21e48d = {
-                  'audio': {
-                    'url': _0xa3a8cf.url
-                  },
-                  'mimetype': "audio/mp4"
-                };
-              }
-            }
+            _0x21e48d = { 'image': { 'url': _0xa3a8cf.url }, 'caption': _0xa3a8cf.message };
+          } else if (_0xa3a8cf.type.toLocaleLowerCase() === 'video') {
+            _0x21e48d = { 'video': { 'url': _0xa3a8cf.url }, 'caption': _0xa3a8cf.message };
+          } else if (_0xa3a8cf.type.toLocaleLowerCase() === "sticker") {
+            let _0x1bc6c0 = new Sticker(_0xa3a8cf.url, { 'pack': conf.NOM_OWNER, 'type': StickerTypes.FULL, 'categories': ['🤩', '🎉'], 'id': "12345", 'quality': 0x46, 'background': 'transparent' });
+            const _0x1bd60b = await _0x1bc6c0.toBuffer();
+            _0x21e48d = { 'sticker': _0x1bd60b };
+          } else if (_0xa3a8cf.type.toLocaleLowerCase() === "audio") {
+            _0x21e48d = { 'audio': { 'url': _0xa3a8cf.url }, 'mimetype': "audio/mp4" };
           }
-          _0x243e88.sendMessage(_0xbaefcb, _0x21e48d, {
-            'quoted': _0x24b35c
-          });
+          _0x243e88.sendMessage(_0xbaefcb, _0x21e48d, { 'quoted': _0x24b35c });
         }
       } catch (_0x14e2ce) {}
       
@@ -810,79 +701,51 @@ setTimeout(() => {
         
         if (hasLink && _0x37f41c && isAntiLinkEnabled) {
           const userIsAdmin = _0x37f41c ? _0x11ea71.includes(_0x133a07) : false;
-          if (userIsAdmin || _0x34fccb) {
-            return;
-          }
-          const messageToDelete = {
-            'remoteJid': _0xbaefcb,
-            'fromMe': false,
-            'id': _0x24b35c.key.id,
-            'participant': _0x133a07
-          };
-          try {
-            await _0x243e88.sendMessage(_0xbaefcb, { 'delete': messageToDelete });
-          } catch(e) {}
+          if (userIsAdmin || _0x34fccb) return;
+          
+          const messageToDelete = { 'remoteJid': _0xbaefcb, 'fromMe': false, 'id': _0x24b35c.key.id, 'participant': _0x133a07 };
+          try { await _0x243e88.sendMessage(_0xbaefcb, { 'delete': messageToDelete }); } catch(e) {}
+          
           const action = await recupererActionJid(_0xbaefcb);
           if (action === 'remove') {
-            await _0x243e88.sendMessage(_0xbaefcb, {
-              'text': `🚨 *LINK DETECTED!* 🚨\n\n@${_0x133a07.split('@')[0]} has been removed.`,
-              'mentions': [_0x133a07]
-            }, { 'quoted': _0x24b35c });
-            try {
-              await _0x243e88.groupParticipantsUpdate(_0xbaefcb, [_0x133a07], "remove");
-            } catch(e) {}
+            await _0x243e88.sendMessage(_0xbaefcb, { 'text': `🚨 *LINK DETECTED!* 🚨\n\n@${_0x133a07.split('@')[0]} has been removed.`, 'mentions': [_0x133a07] }, { 'quoted': _0x24b35c });
+            try { await _0x243e88.groupParticipantsUpdate(_0xbaefcb, [_0x133a07], "remove"); } catch(e) {}
           } else if (action === 'warn') {
             const { getWarnCountByJID, ajouterUtilisateurAvecWarnCount } = require("./bdd/warn");
             let warnCount = await getWarnCountByJID(_0x133a07);
             let maxWarns = conf.WARN_COUNT || 3;
             if (warnCount >= maxWarns) {
-              await _0x243e88.sendMessage(_0xbaefcb, {
-                'text': `⚠️ *FINAL WARNING!* ⚠️\n\n@${_0x133a07.split('@')[0]} removed after ${maxWarns} warnings.`,
-                'mentions': [_0x133a07]
-              }, { 'quoted': _0x24b35c });
-              try {
-                await _0x243e88.groupParticipantsUpdate(_0xbaefcb, [_0x133a07], "remove");
-              } catch(e) {}
+              await _0x243e88.sendMessage(_0xbaefcb, { 'text': `⚠️ *FINAL WARNING!* ⚠️\n\n@${_0x133a07.split('@')[0]} removed after ${maxWarns} warnings.`, 'mentions': [_0x133a07] }, { 'quoted': _0x24b35c });
+              try { await _0x243e88.groupParticipantsUpdate(_0xbaefcb, [_0x133a07], "remove"); } catch(e) {}
             } else {
               await ajouterUtilisateurAvecWarnCount(_0x133a07);
-              await _0x243e88.sendMessage(_0xbaefcb, {
-                'text': `⚠️ *WARNING!* ⚠️\n\n@${_0x133a07.split('@')[0]}, links not allowed!\n\n⚠️ Warning ${warnCount + 1}/${maxWarns}`,
-                'mentions': [_0x133a07]
-              }, { 'quoted': _0x24b35c });
+              await _0x243e88.sendMessage(_0xbaefcb, { 'text': `⚠️ *WARNING!* ⚠️\n\n@${_0x133a07.split('@')[0]}, links not allowed!\n\n⚠️ Warning ${warnCount + 1}/${maxWarns}`, 'mentions': [_0x133a07] }, { 'quoted': _0x24b35c });
             }
           } else {
-            await _0x243e88.sendMessage(_0xbaefcb, {
-              'text': `⚠️ *LINK DETECTED!* ⚠️\n\n@${_0x133a07.split('@')[0]}, message deleted.\n\n🚫 Links not allowed!`,
-              'mentions': [_0x133a07]
-            }, { 'quoted': _0x24b35c });
+            await _0x243e88.sendMessage(_0xbaefcb, { 'text': `⚠️ *LINK DETECTED!* ⚠️\n\n@${_0x133a07.split('@')[0]}, message deleted.\n\n🚫 Links not allowed!`, 'mentions': [_0x133a07] }, { 'quoted': _0x24b35c });
           }
         }
       } catch (_0x588dec) {}
       
-      // ANTIBOT IMETOLEWA KABISA HAPA
+      // ANTIBOT IMETOLEWA KABISA
       
+      // ============= COMMANDS HANDLER =============
       if (_0x4d3533) {
         const _0x105af6 = evt.cm.find(_0x1187ba => _0x1187ba.nomCom === _0x375469);
         if (_0x105af6) {
           try {
-            if (conf.MODE.toLocaleLowerCase() != 'yes' && !_0x34fccb) {
-              return;
-            }
+            if (conf.MODE.toLocaleLowerCase() != 'yes' && !_0x34fccb) return;
             if (!_0x34fccb && _0xbaefcb === _0x133a07 && conf.PM_PERMIT === "yes") {
-              _0x574167("You don't have acces to commands here");
+              _0x574167("You don't have access to commands here");
               return;
             }
             if (!_0x34fccb && _0x37f41c) {
               let _0x1f3f9c = await isGroupBanned(_0xbaefcb);
-              if (_0x1f3f9c) {
-                return;
-              }
+              if (_0x1f3f9c) return;
             }
             if (!_0x62654f && _0x37f41c) {
               let _0x4d5d3a = await isGroupOnlyAdmin(_0xbaefcb);
-              if (_0x4d5d3a) {
-                return;
-              }
+              if (_0x4d5d3a) return;
             }
             if (!_0x34fccb) {
               let _0x1a2c28 = await isUserBanned(_0x133a07);
@@ -895,11 +758,7 @@ setTimeout(() => {
             _0x105af6.fonction(_0xbaefcb, _0x243e88, _0x20955d);
           } catch (_0x459532) {
             console.log("😡😡 " + _0x459532);
-            _0x243e88.sendMessage(_0xbaefcb, {
-              'text': "😡😡 " + _0x459532
-            }, {
-              'quoted': _0x24b35c
-            });
+            _0x243e88.sendMessage(_0xbaefcb, { 'text': "😡😡 " + _0x459532 }, { 'quoted': _0x24b35c });
           }
         }
       }
@@ -907,13 +766,13 @@ setTimeout(() => {
       // ============= CHATBOT =============
       try {
         const chatbotEnabled = (conf.CHATBOT || "").toLowerCase() === "yes";
-        const isFromMe = _0x24b35c.key.fromMe;
+        const isFromMe2 = _0x24b35c.key.fromMe;
         const isStatus = _0xbaefcb === "status@broadcast";
         const isNewsletter = _0xbaefcb?.endsWith("@newsletter");
         const hasText = _0xf697f8 && _0xf697f8.trim().length > 0;
         const isCommand = _0x4d3533;
 
-        if (chatbotEnabled && hasText && !isFromMe && !isStatus && !isNewsletter && !isCommand) {
+        if (chatbotEnabled && hasText && !isFromMe2 && !isStatus && !isNewsletter && !isCommand) {
           const mentionedJids = _0x24b35c.message?.extendedTextMessage?.contextInfo?.mentionedJid || [];
           const quotedParticipant = _0x24b35c.message?.extendedTextMessage?.contextInfo?.participant || "";
           const botMentioned = mentionedJids.includes(_0x4b2990) || quotedParticipant === _0x4b2990;
@@ -923,20 +782,11 @@ setTimeout(() => {
             console.log("🤖 CHATBOT triggered for:", _0x133a07);
             try {
               await _0x243e88.sendPresenceUpdate("composing", _0xbaefcb);
-
               const encodedMsg = encodeURIComponent(_0xf697f8.trim());
-              const systemPrompt = encodeURIComponent(
-                `Wewe ni POLITANO, AI assistant wa WhatsApp bot inayoitwa HASHEEM GAMING AI BOT V1.0. Umeundwa na Hasheem Gaming. Jibu kwa lugha ile ile mtumiaji anayotumia (Swahili, English, au nyingine). Jibu kwa ufupi na kwa heshima.unaweza kumwambia mtu pia kuwa ilikupata games kali gusa link hii kupata https://hasheemgaming.com.`
-              );
-
+              const systemPrompt = encodeURIComponent(`Wewe ni POLITANO, AI assistant wa WhatsApp bot inayoitwa HASHEEM GAMING AI BOT V1.0. Umeundwa na Hasheem Gaming. Jibu kwa lugha ile ile mtumiaji anayotumia. Jibu kwa ufupi na kwa heshima.`);
               const axios = require("axios");
-              const response = await axios.get(
-                `https://text.pollinations.ai/${encodedMsg}?model=openai&system=${systemPrompt}&private=true`,
-                { timeout: 20000, responseType: 'text' }
-              );
-
+              const response = await axios.get(`https://text.pollinations.ai/${encodedMsg}?model=openai&system=${systemPrompt}&private=true`, { timeout: 20000, responseType: 'text' });
               const reply = typeof response.data === 'string' ? response.data.trim() : null;
-
               if (reply) {
                 await _0x243e88.sendPresenceUpdate("available", _0xbaefcb);
                 await _0x243e88.sendMessage(_0xbaefcb, { text: `🤖 *HASHEEM GAMING AI BOT V1.0*\n\n${reply}` }, { quoted: _0x24b35c });
@@ -953,19 +803,13 @@ setTimeout(() => {
       }
       // ============= END CHATBOT =============
       
-    }); // End of messages.upsert
+    });
     
-    const {
-      recupevents: _0xad0996
-    } = require("./bdd/welcome");
+    const { recupevents: _0xad0996 } = require("./bdd/welcome");
     _0x243e88.ev.on("group-participants.update", async _0x22fd53 => {
       console.log(_0x22fd53);
       let _0x2031b3;
-      try {
-        _0x2031b3 = await _0x243e88.profilePictureUrl(_0x22fd53.id, 'image');
-      } catch {
-        _0x2031b3 = '';
-      }
+      try { _0x2031b3 = await _0x243e88.profilePictureUrl(_0x22fd53.id, 'image'); } catch { _0x2031b3 = ''; }
       try {
         const _0x1c8ad8 = await _0x243e88.groupMetadata(_0x22fd53.id);
         if (_0x22fd53.action == 'add' && (await _0xad0996(_0x22fd53.id, 'welcome')) == 'on') {
@@ -974,247 +818,137 @@ setTimeout(() => {
           for (let _0x383009 of _0x2ede36) {
             _0x551f97 += " \n❒ *Hey* 🖐️ @" + _0x383009.split('@')[0x0] + " WELCOME TO OUR GROUP. \n\n";
           }
-          _0x551f97 += "❒ *READ THE GROUP DESCRIPTION TO AVOID GETTING REMOVED BY HASHEEM GAMING AI BOT V1.0.* ";
-          _0x243e88.sendMessage(_0x22fd53.id, {
-            'image': {
-              'url': _0x2031b3
-            },
-            'caption': _0x551f97,
-            'mentions': _0x2ede36
-          });
-        } else {
-          if (_0x22fd53.action == 'remove' && (await _0xad0996(_0x22fd53.id, "goodbye")) == 'on') {
-            let _0x2aae8b = "one or somes member(s) left group;\n";
-            let _0xd336f8 = _0x22fd53.participants;
-            for (let _0x5eee9b of _0xd336f8) {
-              _0x2aae8b += '@' + _0x5eee9b.split('@')[0x0] + "\n";
-            }
-            _0x243e88.sendMessage(_0x22fd53.id, {
-              'text': _0x2aae8b,
-              'mentions': _0xd336f8
-            });
-          } else {
-            if (_0x22fd53.action == 'promote' && (await _0xad0996(_0x22fd53.id, "antipromote")) == 'on') {
-              if (_0x22fd53.author == _0x1c8ad8.owner || _0x22fd53.author == conf.NUMERO_OWNER + "@s.whatsapp.net" || _0x22fd53.author == decodeJid(_0x243e88.user.id) || _0x22fd53.author == _0x22fd53.participants[0x0]) {
-                console.log("Cas de superUser je fais rien");
-                return;
-              }
-              ;
-              await _0x243e88.groupParticipantsUpdate(_0x22fd53.id, [_0x22fd53.author, _0x22fd53.participants[0x0]], "demote");
-              _0x243e88.sendMessage(_0x22fd53.id, {
-                'text': '@' + _0x22fd53.author.split('@')[0x0] + " has violated the anti-promotion rule, therefore both " + _0x22fd53.author.split('@')[0x0] + " and @" + _0x22fd53.participants[0x0].split('@')[0x0] + " have been removed from administrative rights.",
-                'mentions': [_0x22fd53.author, _0x22fd53.participants[0x0]]
-              });
-            } else {
-              if (_0x22fd53.action == "demote" && (await _0xad0996(_0x22fd53.id, 'antidemote')) == 'on') {
-                if (_0x22fd53.author == _0x1c8ad8.owner || _0x22fd53.author == conf.NUMERO_OWNER + "@s.whatsapp.net" || _0x22fd53.author == decodeJid(_0x243e88.user.id) || _0x22fd53.author == _0x22fd53.participants[0x0]) {
-                  console.log("Cas de superUser je fais rien");
-                  return;
-                }
-                ;
-                await _0x243e88.groupParticipantsUpdate(_0x22fd53.id, [_0x22fd53.author], "demote");
-                await _0x243e88.groupParticipantsUpdate(_0x22fd53.id, [_0x22fd53.participants[0x0]], "promote");
-                _0x243e88.sendMessage(_0x22fd53.id, {
-                  'text': '@' + _0x22fd53.author.split('@')[0x0] + " has violated the anti-demotion rule by removing @" + _0x22fd53.participants[0x0].split('@')[0x0] + ". Consequently, he has been stripped of administrative rights.",
-                  'mentions': [_0x22fd53.author, _0x22fd53.participants[0x0]]
-                });
-              }
-            }
-          }
+          _0x551f97 += "❒ *READ THE GROUP DESCRIPTION TO AVOID GETTING REMOVED.* ";
+          _0x243e88.sendMessage(_0x22fd53.id, { 'image': { 'url': _0x2031b3 }, 'caption': _0x551f97, 'mentions': _0x2ede36 });
+        } else if (_0x22fd53.action == 'remove' && (await _0xad0996(_0x22fd53.id, "goodbye")) == 'on') {
+          let _0x2aae8b = "one or some member(s) left group;\n";
+          let _0xd336f8 = _0x22fd53.participants;
+          for (let _0x5eee9b of _0xd336f8) _0x2aae8b += '@' + _0x5eee9b.split('@')[0x0] + "\n";
+          _0x243e88.sendMessage(_0x22fd53.id, { 'text': _0x2aae8b, 'mentions': _0xd336f8 });
+        } else if (_0x22fd53.action == 'promote' && (await _0xad0996(_0x22fd53.id, "antipromote")) == 'on') {
+          if (_0x22fd53.author == _0x1c8ad8.owner || _0x22fd53.author == conf.NUMERO_OWNER + "@s.whatsapp.net" || _0x22fd53.author == decodeJid(_0x243e88.user.id) || _0x22fd53.author == _0x22fd53.participants[0x0]) return;
+          await _0x243e88.groupParticipantsUpdate(_0x22fd53.id, [_0x22fd53.author, _0x22fd53.participants[0x0]], "demote");
+          _0x243e88.sendMessage(_0x22fd53.id, { 'text': '@' + _0x22fd53.author.split('@')[0x0] + " has violated anti-promotion rule, both demoted.", 'mentions': [_0x22fd53.author, _0x22fd53.participants[0x0]] });
+        } else if (_0x22fd53.action == "demote" && (await _0xad0996(_0x22fd53.id, 'antidemote')) == 'on') {
+          if (_0x22fd53.author == _0x1c8ad8.owner || _0x22fd53.author == conf.NUMERO_OWNER + "@s.whatsapp.net" || _0x22fd53.author == decodeJid(_0x243e88.user.id) || _0x22fd53.author == _0x22fd53.participants[0x0]) return;
+          await _0x243e88.groupParticipantsUpdate(_0x22fd53.id, [_0x22fd53.author], "demote");
+          await _0x243e88.groupParticipantsUpdate(_0x22fd53.id, [_0x22fd53.participants[0x0]], "promote");
+          _0x243e88.sendMessage(_0x22fd53.id, { 'text': '@' + _0x22fd53.author.split('@')[0x0] + " violated anti-demotion rule, demoted.", 'mentions': [_0x22fd53.author, _0x22fd53.participants[0x0]] });
         }
-      } catch (_0x51b1a3) {
-        console.error(_0x51b1a3);
-      }
+      } catch (_0x51b1a3) { console.error(_0x51b1a3); }
     });
+    
     async function _0x1f93c4() {
       const _0x25cc58 = require("node-cron");
-      const {
-        getCron: _0x22d016
-      } = require('./bdd/cron');
+      const { getCron: _0x22d016 } = require('./bdd/cron');
       let _0x9418e1 = await _0x22d016();
       console.log(_0x9418e1);
       if (_0x9418e1.length > 0x0) {
         for (let _0x226f5f = 0x0; _0x226f5f < _0x9418e1.length; _0x226f5f++) {
           if (_0x9418e1[_0x226f5f].mute_at != null) {
             let _0x45a162 = _0x9418e1[_0x226f5f].mute_at.split(':');
-            console.log("etablissement d'un automute pour " + _0x9418e1[_0x226f5f].group_id + " a " + _0x45a162[0x0] + " H " + _0x45a162[0x1]);
             _0x25cc58.schedule(_0x45a162[0x1] + " " + _0x45a162[0x0] + " * * *", async () => {
               await _0x243e88.groupSettingUpdate(_0x9418e1[_0x226f5f].group_id, 'announcement');
-              _0x243e88.sendMessage(_0x9418e1[_0x226f5f].group_id, {
-                'image': {
-                  'url': './media/chrono.webp'
-                },
-                'caption': "Hello, it's time to close the group; sayonara."
-              });
-            }, {
-              'timezone': "Africa/Nairobi"
-            });
+              _0x243e88.sendMessage(_0x9418e1[_0x226f5f].group_id, { 'image': { 'url': './media/chrono.webp' }, 'caption': "Hello, it's time to close the group; sayonara." });
+            }, { 'timezone': "Africa/Nairobi" });
           }
           if (_0x9418e1[_0x226f5f].unmute_at != null) {
             let _0x4dc2dd = _0x9418e1[_0x226f5f].unmute_at.split(':');
-            console.log("etablissement d'un autounmute pour " + _0x4dc2dd[0x0] + " H " + _0x4dc2dd[0x1] + " ");
             _0x25cc58.schedule(_0x4dc2dd[0x1] + " " + _0x4dc2dd[0x0] + " * * *", async () => {
               await _0x243e88.groupSettingUpdate(_0x9418e1[_0x226f5f].group_id, "not_announcement");
-              _0x243e88.sendMessage(_0x9418e1[_0x226f5f].group_id, {
-                'image': {
-                  'url': "./media/chrono.webp"
-                },
-                'caption': "Good morning; It's time to open the group."
-              });
-            }, {
-              'timezone': "Africa/Nairobi"
-            });
+              _0x243e88.sendMessage(_0x9418e1[_0x226f5f].group_id, { 'image': { 'url': "./media/chrono.webp" }, 'caption': "Good morning; It's time to open the group." });
+            }, { 'timezone': "Africa/Nairobi" });
           }
         }
-      } else {
-        console.log("Les crons n'ont pas été activés");
-      }
+      } else { console.log("Les crons n'ont pas été activés"); }
       return;
     }
+    
     _0x243e88.ev.on("contacts.upsert", async _0x45e936 => {
       const _0x5d3871 = _0x2133d1 => {
         for (const _0x47ac40 of _0x2133d1) {
-          if (store.contacts[_0x47ac40.id]) {
-            Object.assign(store.contacts[_0x47ac40.id], _0x47ac40);
-          } else {
-            store.contacts[_0x47ac40.id] = _0x47ac40;
-          }
+          if (store.contacts[_0x47ac40.id]) Object.assign(store.contacts[_0x47ac40.id], _0x47ac40);
+          else store.contacts[_0x47ac40.id] = _0x47ac40;
         }
         return;
       };
       _0x5d3871(_0x45e936);
     });
+    
     _0x243e88.ev.on("connection.update", async _0x147343 => {
-      const {
-        lastDisconnect: _0x41b97c,
-        connection: _0x52925b
-      } = _0x147343;
+      const { lastDisconnect: _0x41b97c, connection: _0x52925b } = _0x147343;
       if (_0x52925b === "connecting") {
-        console.log(" Hasheem Gaming is connecting...");
-      } else {
-        if (_0x52925b === 'open') {
-          console.log("✅ HASHEEM GAMING AI BOT V1.0 Connected to WhatsApp! ☺️");
-          console.log('--');
-          0x0;
-          await baileys_1.delay(0xc8);
-          console.log('------');
-          0x0;
-          await baileys_1.delay(0x12c);
-          console.log("------------------/-----");
-          console.log("HASHEEM GAMING AI BOT V1.0 is Online 🕸\n\n");
-          console.log("Loading Commands ...\n");
-          fs.readdirSync(__dirname + "/pkdriller").forEach(_0x5c00ae => {
-            if (path.extname(_0x5c00ae).toLowerCase() == ".js") {
-              try {
-                require(__dirname + "/pkdriller/" + _0x5c00ae);
-                console.log(_0x5c00ae + " Installed Successfully✔️");
-              } catch (_0x12f781) {
-                console.log(_0x5c00ae + " could not be installed due to : " + _0x12f781);
-              }
-              0x0;
-              baileys_1.delay(0x12c);
-            }
-          });
-          0x0;
-          baileys_1.delay(0x2bc);
-          var _0x50f3b5;
-          if (conf.MODE.toLocaleLowerCase() === "yes") {
-            _0x50f3b5 = 'public';
-          } else if (conf.MODE.toLocaleLowerCase() === 'no') {
-            _0x50f3b5 = "private";
-          } else {
-            _0x50f3b5 = "undefined";
+        console.log("Hasheem Gaming is connecting...");
+      } else if (_0x52925b === 'open') {
+        console.log("✅ HASHEEM GAMING AI BOT V1.0 Connected! ☺️");
+        console.log('--');
+        await baileys_1.delay(0xc8);
+        console.log('------');
+        await baileys_1.delay(0x12c);
+        console.log("------------------/-----");
+        console.log("HASHEEM GAMING AI BOT V1.0 is Online 🕸\n\n");
+        console.log("Loading Commands ...\n");
+        fs.readdirSync(__dirname + "/pkdriller").forEach(_0x5c00ae => {
+          if (path.extname(_0x5c00ae).toLowerCase() == ".js") {
+            try {
+              require(__dirname + "/pkdriller/" + _0x5c00ae);
+              console.log(_0x5c00ae + " Installed Successfully✔️");
+            } catch (_0x12f781) { console.log(_0x5c00ae + " error: " + _0x12f781); }
+            baileys_1.delay(0x12c);
           }
-          console.log("Commands Installation Completed ✅");
-          await _0x1f93c4();
-          if (conf.DP.toLowerCase() === "yes") {
-            let _0x32d52b = " ⁠⁠⁠⁠\n╭─────────────━┈⊷ \n│🎮 *HASHEEM GAMING AI BOT V1.0 IS CONNECTED* 🎮\n╰─────────────━┈⊷\n│💫 ᴘʀᴇғɪx: *[ " + prefixe + " ]*\n│⭕ ᴍᴏᴅᴇ: *" + _0x50f3b5 + "*\n│💢 *ʙᴏᴛ ɴᴀᴍᴇ* HASHEEM GAMING AI BOT V1.0\n╰─────────────━┈⊷\n\n*Follow our Channel For Updates*\n> https://whatsapp.com/channel/0029VatokI45EjxufALmY32X\n                \n                \n                 ";
-            await _0x243e88.sendMessage(_0x243e88.user.id, {
-              'text': _0x32d52b
-            });
-          }
-        } else {
-          if (_0x52925b == 'close') {
-            let _0x46bf7 = new boom_1.Boom(_0x41b97c?.["error"])?.["output"]['statusCode'];
-            if (_0x46bf7 === baileys_1.DisconnectReason.badSession) {
-              console.log("Session id error, rescan again...");
-            } else {
-              if (_0x46bf7 === baileys_1.DisconnectReason.connectionClosed) {
-                console.log("!!! connexion fermée, reconnexion en cours ...");
-                _0x1b1480();
-              } else {
-                if (_0x46bf7 === baileys_1.DisconnectReason.connectionLost) {
-                  console.log("connection error 😞 ,,, trying to reconnect... ");
-                  _0x1b1480();
-                } else {
-                  if (_0x46bf7 === baileys_1.DisconnectReason?.['connectionReplaced']) {
-                    console.log("connexion réplacée ,,, une sesssion est déjà ouverte veuillez la fermer svp !!!");
-                  } else {
-                    if (_0x46bf7 === baileys_1.DisconnectReason.loggedOut) {
-                      console.log("vous êtes déconnecté,,, veuillez rescanner le code qr svp");
-                    } else {
-                      if (_0x46bf7 === baileys_1.DisconnectReason.restartRequired) {
-                        console.log("redémarrage en cours ▶️");
-                        _0x1b1480();
-                      } else {
-                        console.log("redemarrage sur le coup de l'erreur  ", _0x46bf7);
-                        const {
-                          exec: _0x5b98ef
-                        } = require("child_process");
-                        _0x5b98ef("pm2 restart all");
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            console.log("hum " + _0x52925b);
-            _0x1b1480();
-          }
+        });
+        await baileys_1.delay(0x2bc);
+        var _0x50f3b5;
+        if (conf.MODE.toLocaleLowerCase() === "yes") _0x50f3b5 = 'public';
+        else if (conf.MODE.toLocaleLowerCase() === 'no') _0x50f3b5 = "private";
+        else _0x50f3b5 = "undefined";
+        console.log("Commands Installation Completed ✅");
+        await _0x1f93c4();
+        if (conf.DP.toLowerCase() === "yes") {
+          let _0x32d52b = " ⁠⁠⁠⁠\n╭─────────────━┈⊷ \n│🎮 *HASHEEM GAMING AI BOT V1.0* 🎮\n╰─────────────━┈⊷\n│💫 ᴘʀᴇғɪx: *[ " + prefixe + " ]*\n│⭕ ᴍᴏᴅᴇ: *" + _0x50f3b5 + "*\n│💢 *ʙᴏᴛ ɴᴀᴍᴇ* HASHEEM GAMING AI BOT V1.0\n╰─────────────━┈⊷\n\n*Follow our Channel For Updates*\n> https://whatsapp.com/channel/0029VatokI45EjxufALmY32X";
+          await _0x243e88.sendMessage(_0x243e88.user.id, { 'text': _0x32d52b });
         }
+      } else if (_0x52925b == 'close') {
+        let _0x46bf7 = new boom_1.Boom(_0x41b97c?.["error"])?.["output"]['statusCode'];
+        if (_0x46bf7 === baileys_1.DisconnectReason.badSession) console.log("Session id error, rescan again...");
+        else if (_0x46bf7 === baileys_1.DisconnectReason.connectionClosed) { console.log("connexion fermée, reconnexion..."); _0x1b1480(); }
+        else if (_0x46bf7 === baileys_1.DisconnectReason.connectionLost) { console.log("connection error, reconnecting..."); _0x1b1480(); }
+        else if (_0x46bf7 === baileys_1.DisconnectReason?.connectionReplaced) console.log("connexion réplacée...");
+        else if (_0x46bf7 === baileys_1.DisconnectReason.loggedOut) console.log("vous êtes déconnecté, rescanner...");
+        else if (_0x46bf7 === baileys_1.DisconnectReason.restartRequired) { console.log("redémarrage..."); _0x1b1480(); }
+        else { console.log("redemarrage sur erreur ", _0x46bf7); const { exec: _0x5b98ef } = require("child_process"); _0x5b98ef("pm2 restart all"); }
+        console.log("hum " + _0x52925b);
+        _0x1b1480();
       }
     });
+    
     _0x243e88.ev.on("creds.update", _0x43ea6e);
+    
     _0x243e88.downloadAndSaveMediaMessage = async (_0x4a8528, _0x4ef4eb = '', _0x213632 = true) => {
       let _0x55b529 = _0x4a8528.msg ? _0x4a8528.msg : _0x4a8528;
       let _0x22362d = (_0x4a8528.msg || _0x4a8528).mimetype || '';
       let _0x2620bf = _0x4a8528.mtype ? _0x4a8528.mtype.replace(/Message/gi, '') : _0x22362d.split('/')[0x0];
-      0x0;
       const _0x3ac107 = await baileys_1.downloadContentFromMessage(_0x55b529, _0x2620bf);
       let _0x2cb55c = Buffer.from([]);
-      for await (const _0x30ca65 of _0x3ac107) {
-        _0x2cb55c = Buffer.concat([_0x2cb55c, _0x30ca65]);
-      }
+      for await (const _0x30ca65 of _0x3ac107) _0x2cb55c = Buffer.concat([_0x2cb55c, _0x30ca65]);
       let _0x741e23 = await FileType.fromBuffer(_0x2cb55c);
       let _0x1689a1 = './' + _0x4ef4eb + '.' + _0x741e23.ext;
       await fs.writeFileSync(_0x1689a1, _0x2cb55c);
       return _0x1689a1;
     };
+    
     _0x243e88.awaitForMessage = async (_0x272ee8 = {}) => {
       return new Promise((_0x2d207e, _0x25c039) => {
-        if (typeof _0x272ee8 !== "object") {
-          _0x25c039(new Error("Options must be an object"));
-        }
-        if (typeof _0x272ee8.sender !== 'string') {
-          _0x25c039(new Error("Sender must be a string"));
-        }
-        if (typeof _0x272ee8.chatJid !== "string") {
-          _0x25c039(new Error("ChatJid must be a string"));
-        }
-        if (_0x272ee8.timeout && typeof _0x272ee8.timeout !== "number") {
-          _0x25c039(new Error("Timeout must be a number"));
-        }
-        if (_0x272ee8.filter && typeof _0x272ee8.filter !== "function") {
-          _0x25c039(new Error("Filter must be a function"));
-        }
+        if (typeof _0x272ee8 !== "object") _0x25c039(new Error("Options must be an object"));
+        if (typeof _0x272ee8.sender !== 'string') _0x25c039(new Error("Sender must be a string"));
+        if (typeof _0x272ee8.chatJid !== "string") _0x25c039(new Error("ChatJid must be a string"));
+        if (_0x272ee8.timeout && typeof _0x272ee8.timeout !== "number") _0x25c039(new Error("Timeout must be a number"));
+        if (_0x272ee8.filter && typeof _0x272ee8.filter !== "function") _0x25c039(new Error("Filter must be a function"));
         const _0x48cf8b = _0x272ee8?.["timeout"] || undefined;
         const _0x50d51d = _0x272ee8?.["filter"] || (() => true);
         let _0x2b6fd7 = undefined;
         let _0xa776a1 = _0x2c10e5 => {
-          let {
-            type: _0x3efe17,
-            messages: _0x3bedb5
-          } = _0x2c10e5;
+          let { type: _0x3efe17, messages: _0x3bedb5 } = _0x2c10e5;
           if (_0x3efe17 == "notify") {
             for (let _0x553b45 of _0x3bedb5) {
               const _0x13e794 = _0x553b45.key.fromMe;
@@ -1231,12 +965,7 @@ setTimeout(() => {
           }
         };
         _0x243e88.ev.on("messages.upsert", _0xa776a1);
-        if (_0x48cf8b) {
-          _0x2b6fd7 = setTimeout(() => {
-            _0x243e88.ev.off("messages.upsert", _0xa776a1);
-            _0x25c039(new Error('Timeout'));
-          }, _0x48cf8b);
-        }
+        if (_0x48cf8b) _0x2b6fd7 = setTimeout(() => { _0x243e88.ev.off("messages.upsert", _0xa776a1); _0x25c039(new Error('Timeout')); }, _0x48cf8b);
       });
     };
     return _0x243e88;
