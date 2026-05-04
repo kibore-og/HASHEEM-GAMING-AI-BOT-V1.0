@@ -51,7 +51,7 @@ zokou({
 ┃
 ┗━━━━━━━━━━━━━━━━━━
 
-> *⚡ DEVELOPED BY HASHEEM*`,
+> *⚡ DEVELOPED BY JIDENNA HACKER*`,
     mentions: [auteurMessage]
   });
 });
