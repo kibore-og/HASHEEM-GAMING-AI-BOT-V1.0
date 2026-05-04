@@ -1,69 +1,91 @@
 const { zokou } = require("../framework/zokou");
+const os = require("os");
 
 zokou({
   nomCom: "menu",
   aliases: ["help", "commands", "list"],
-  reaction: "🎮",
+  reaction: "🔥",
   categorie: "General"
 }, async (dest, zk, commandeOptions) => {
-  const { auteurMessage, prefixe } = commandeOptions;
+  const { repondre, auteurMessage, arg, prefixe } = commandeOptions;
   
   // Uptime
   const uptime = process.uptime();
-  const hours = Math.floor(uptime / 3600);
-  const minutes = Math.floor((uptime % 3600) / 60);
-  const seconds = Math.floor(uptime % 60);
+  const d = Math.floor(uptime / 86400);
+  const h = Math.floor((uptime % 86400) / 3600);
+  const m = Math.floor((uptime % 3600) / 60);
+  const s = Math.floor(uptime % 60);
   
-  // Group commands
-  const groups = {};
+  const uptimeStr = `${d}d ${h}h ${m}m ${s}s`;
+  
+  // Commands count
+  const totalCmds = evt.cm.length;
+  
+  // Group commands by category
+  const cmdGroups = {};
   for (const cmd of evt.cm) {
-    const cat = cmd.categorie || "General";
-    if (!groups[cat]) groups[cat] = [];
-    groups[cat].push(cmd);
+    const cat = cmd.categorie || "Uncategorized";
+    if (!cmdGroups[cat]) cmdGroups[cat] = [];
+    cmdGroups[cat].push(cmd);
   }
   
-  const menuImage = "https://files.catbox.moe/ghxrv1.jpg";
+  // Menu image
+  const imgUrl = "https://files.catbox.moe/ghxrv1.jpg";
   
-  let output = `╔════════════════════════════╗
-║     🎮 *GAMING MENU* 🎮
-║════════════════════════════
-║
-║ 🎮 *PLAYER:* @${auteurMessage.split('@')[0]}
-║ 🤖 *BOT:* HASHEEM GAMING
-║ ⏱️ *ONLINE:* ${hours}h ${minutes}m ${seconds}s
-║
+  // Build menu
+  let menuText = `┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃       ✨ *${"HASHEEM GAMING AI"}* ✨
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+┃
+┃ ⚡ *STATUS:* 🟢 ONLINE
+┃ 🤖 *BOT:* HASHEEM GAMING V1.0
+┃ 👑 *OWNER:* HASHEEM GAMING
+┃ 📊 *COMMANDS:* ${totalCmds}
+┃ ⏱️ *UPTIME:* ${uptimeStr}
+┃
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┃            📋 *MENU* 📋
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┃
 `;
   
-  for (const [cat, cmds] of Object.entries(groups)) {
-    const emoji = cat === "Owner" ? "👑" : cat === "Group" ? "👥" : cat === "General" ? "📋" : cat === "Download" ? "📥" : "🎮";
-    output += `║ ${emoji} *${cat.toUpperCase()}*
-║ ──────────────────────
+  for (const [cat, cmds] of Object.entries(cmdGroups)) {
+    menuText += `┃ 📁 *${cat.toUpperCase()}* [${cmds.length}]
+┃ ┌─────────────────────
 `;
-    for (const cmd of cmds.slice(0, 4)) {
-      output += `║  ✦ ${prefixe}${cmd.nomCom}
+    for (const cmd of cmds.slice(0, 5)) {
+      menuText += `┃ │ ✦ ${prefixe}${cmd.nomCom}
 `;
     }
-    if (cmds.length > 4) {
-      output += `║  ✦ +${cmds.length - 4} more
+    if (cmds.length > 5) {
+      menuText += `┃ │ ... and ${cmds.length - 5} more
 `;
     }
-    output += `║
+    menuText += `┃ └─────────────────────
+┃
 `;
   }
   
-  output += `║════════════════════════════
-║
-║ 💡 *COMMANDS:*
-║ ${prefixe}menu → Main menu
-║ ${prefixe}menu owner → Owner cmds
-║
-╚════════════════════════════╝
+  menuText += `┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┃
+┃ 💡 *HOW TO USE:*
+┃ ${prefixe}menu → Show all commands
+┃ ${prefixe}menu <category> → Show category
+┃
+┃ 📌 *EXAMPLES:*
+┃ ${prefixe}menu owner
+┃ ${prefixe}menu group
+┃
+┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┃ 🎮 *HASHEEM GAMING AI BOT*
+┃ 🔥 *POWERED BY JIDENNA HACKER*
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔥 *JIDENNA HACKER*`;
+> *THANK YOU FOR USING HASHEEM GAMING AI*`;
 
   await zk.sendMessage(dest, {
-    image: { url: menuImage },
-    caption: output,
+    image: { url: imgUrl },
+    caption: menuText,
     mentions: [auteurMessage]
   });
 });
