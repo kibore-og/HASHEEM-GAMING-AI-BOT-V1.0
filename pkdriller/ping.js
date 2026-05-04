@@ -39,7 +39,7 @@ zokou({
 ┃
 ╰━━━━━━━━━━╯
 
-> *Powered by HASHEEM GAMING AI*`,
+> *Powered by JIDENNA HACKER*`,
     edit: loadMsg.key
   });
 });
